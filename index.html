@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edubull Studio · Learning Games by Class</title>
 <meta name="description" content="Edubull Studio — pick your class, then dive into subject-wise interactive learning games for Nursery to Class 8.">
-<meta name="theme-color" content="#eef0fb">
+<meta name="theme-color" content="#eceefa">
+<meta name="color-scheme" content="light only">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235b5bd6'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3Eeb%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,30 +45,6 @@
   --radius-sm: 12px;
   --sidebar-w: 300px;
   --ease: cubic-bezier(.2,.8,.2,1);
-}
-:root[data-theme="dark"]{
-  --bg: #0f1021;
-  --bg-grad-1: #171a3a;
-  --bg-grad-2: #1f1530;
-  --bg-grad-3: #0f1c33;
-  --surface: rgba(28,30,58,.72);
-  --surface-solid: #1a1c3a;
-  --surface-2: rgba(28,30,58,.5);
-  --surface-hover: rgba(36,38,72,.95);
-  --border: rgba(255,255,255,.07);
-  --border-strong: rgba(255,255,255,.14);
-  --text: #f1f2ff;
-  --text-2: #b7bad6;
-  --text-3: #7e819f;
-  --brand: #8b8bff;
-  --brand-2: #a79bff;
-  --brand-soft: rgba(139,139,255,.14);
-  --brand-soft-2: rgba(139,139,255,.24);
-  --accent: #ff6f95;
-  --ring: rgba(139,139,255,.45);
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
-  --shadow-md: 0 4px 16px rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.25);
-  --shadow-lg: 0 24px 64px rgba(0,0,0,.5);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -112,7 +89,6 @@ a{color:inherit;text-decoration:none}
 .brand .logo{display:block;flex:1;min-width:0}
 .brand .logo img{display:block;width:100%;max-width:210px;height:auto}
 .brand .mark{display:none}
-:root[data-theme="dark"] .brand .logo{background:#fff;border-radius:12px;padding:6px 10px}
 .collapse-btn{
   margin-left:auto;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;
   color:var(--text-3);transition:all .2s var(--ease);flex:none
@@ -250,13 +226,11 @@ a{color:inherit;text-decoration:none}
   position:relative;height:150px;border-radius:18px;display:grid;place-items:center;overflow:hidden;
   background:linear-gradient(150deg,color-mix(in srgb,var(--c) 18%,#fff),color-mix(in srgb,var(--c) 48%,#fff));
 }
-:root[data-theme="dark"] .class-card .tile{background:linear-gradient(150deg,color-mix(in srgb,var(--c) 28%,#1a1c3a),color-mix(in srgb,var(--c) 62%,#1a1c3a))}
 .class-card .tile::before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.28);right:-60px;top:-70px}
 .class-card .tile::after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.2);left:-40px;bottom:-50px}
 .class-card .ico{font-size:72px;line-height:1;filter:drop-shadow(0 10px 14px color-mix(in srgb,var(--c) 45%,transparent));transition:transform .4s var(--ease);position:relative;z-index:1}
 .class-card:hover .ico{transform:scale(1.15) rotate(-8deg)}
 .class-card .pill{position:absolute;top:10px;right:10px;z-index:1;font-size:11px;font-weight:800;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--c)}
-:root[data-theme="dark"] .class-card .pill{background:rgba(0,0,0,.35);color:#fff}
 .class-card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 8px 6px}
 .class-card h3{margin:0;font-size:20px;font-weight:800;letter-spacing:-.5px}
 .class-card .sub{font-size:12.5px;color:var(--text-3)}
@@ -320,7 +294,6 @@ a{color:inherit;text-decoration:none}
   display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;width:100%;border-radius:13px;font-size:13.5px;font-weight:800;
   background:var(--brand-soft);color:var(--c);transition:all .25s var(--ease)
 }
-:root[data-theme="dark"] .play{color:#fff}
 .play svg{transition:transform .25s var(--ease)}
 .play:hover,.game:hover .play{background:var(--c);color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--c) 40%,transparent)}
 .play:hover svg,.game:hover .play svg{transform:translateX(3px)}
@@ -559,15 +532,6 @@ const state = { view:'home', classId:null, subject:'all', query:'', favs: new Se
 const gamesFor = cid => GAMES.filter(g => g.classes.includes(cid));
 const classById = id => CLASSES.find(c => c.id===id);
 const app = $('#app');
-
-/* ---------- Theme ---------- */
-function setTheme(t, save=true){
-  document.documentElement.dataset.theme = t;
-  $('meta[name=theme-color]').content = t==='dark' ? '#0f1021' : '#eef0fb';
-  if(save) store.set('theme', t);
-}
-setTheme(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light', false);
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => setTheme(e.matches?'dark':'light', false));
 
 /* ---------- Greeting ---------- */
 (function(){ const h = new Date().getHours(); $('#greetText').textContent = h<12?'Good morning':h<17?'Good afternoon':'Good evening'; })();
