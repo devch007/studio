@@ -149,7 +149,8 @@ a{color:inherit;text-decoration:none}
 }
 .topbar .eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand)}
 .crumb{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--text-3);letter-spacing:.3px}
-.crumb button{font-weight:700;color:var(--text-3);padding:4px 8px;border-radius:8px;transition:all .2s}
+.crumb button{font-weight:700;color:var(--text-3);padding:4px 8px;border-radius:8px;transition:all .2s;display:flex;align-items:center;gap:5px}
+.crumb button svg{width:14px;height:14px}
 .crumb button:hover{color:var(--brand);background:var(--brand-soft)}
 .crumb .cur{color:var(--text);padding:4px 8px}
 .search{
@@ -217,7 +218,8 @@ a{color:inherit;text-decoration:none}
 
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:30px 0 16px}
 .section-head h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.6px;display:flex;align-items:center;gap:10px}
-.section-head h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--c,var(--brand));box-shadow:0 0 0 4px color-mix(in srgb,var(--c,var(--brand)) 20%,transparent)}
+.section-head h2 .dot{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:var(--c,var(--brand));background:color-mix(in srgb,var(--c,var(--brand)) 14%,transparent)}
+.section-head h2 .dot svg{width:18px;height:18px}
 .section-head p{margin:2px 0 0;font-size:13.5px;color:var(--text-3)}
 .section-head .meta{font-size:12.5px;font-weight:700;color:var(--text-3)}
 
@@ -238,7 +240,8 @@ a{color:inherit;text-decoration:none}
 .class-card .ico{position:relative;z-index:1;width:92px;height:92px;border-radius:28px;display:grid;place-items:center;color:var(--c);background:rgba(255,255,255,.75);box-shadow:0 12px 24px color-mix(in srgb,var(--c) 30%,transparent),inset 0 1px 0 #fff;transition:transform .4s var(--ease)}
 .class-card .ico svg{width:48px;height:48px}
 .class-card:hover .ico{transform:scale(1.1) rotate(-6deg)}
-.class-card .pill{position:absolute;top:10px;right:10px;z-index:1;font-size:11px;font-weight:800;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--c)}
+.class-card .pill{position:absolute;top:10px;right:10px;z-index:1;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;padding:5px 10px 5px 8px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--c)}
+.class-card .pill svg{width:12px;height:12px}
 .class-card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 8px 6px}
 .class-card h3{margin:0;font-size:20px;font-weight:800;letter-spacing:-.5px}
 .class-card .sub{font-size:12.5px;color:var(--text-3)}
@@ -254,7 +257,9 @@ a{color:inherit;text-decoration:none}
   box-shadow:var(--shadow-sm);color:var(--text-2);transition:all .25s var(--ease)
 }
 .back:hover{background:var(--brand);color:#fff;transform:translateX(-3px);box-shadow:var(--shadow-md)}
-.detail-head .title .k{font-size:12.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;gap:8px}
+.detail-head .title .k{font-size:12.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;gap:6px}
+.detail-head .title .k svg{width:15px;height:15px}
+.detail-head p svg{width:14px;height:14px;vertical-align:-2px;margin-right:4px;color:var(--brand)}
 .detail-head h1{margin:2px 0 4px;font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-1.4px;line-height:1.05;display:flex;align-items:center;gap:12px}
 .detail-head h1 .big{--c:var(--brand);width:56px;height:56px;border-radius:18px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,color-mix(in srgb,var(--c) 75%,#fff),var(--c));box-shadow:0 10px 22px color-mix(in srgb,var(--c) 40%,transparent)}
 .detail-head h1 .big svg{width:28px;height:28px}
@@ -262,14 +267,15 @@ a{color:inherit;text-decoration:none}
 
 .filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:22px;padding:6px;border-radius:20px;background:var(--surface-2);border:1px solid var(--border);width:fit-content;max-width:100%}
 .chip{
-  --c:var(--brand);display:flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 12px;border-radius:14px;font-size:13.5px;font-weight:700;color:var(--text-2);
+  --c:var(--brand);display:flex;align-items:center;gap:8px;height:42px;padding:0 16px 0 8px;border-radius:14px;font-size:13.5px;font-weight:700;color:var(--text-2);
   transition:all .25s var(--ease);white-space:nowrap
 }
-.chip .sw{width:10px;height:10px;border-radius:4px;background:var(--c);opacity:.7}
+.chip .sw{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);transition:all .25s var(--ease)}
+.chip .sw svg{width:15px;height:15px}
 .chip .n{font-size:11px;font-weight:800;padding:2px 7px;border-radius:999px;background:var(--surface-solid);color:var(--text-3)}
 .chip:hover{color:var(--text);background:var(--surface)}
 .chip.on{background:var(--surface-solid);color:var(--text);box-shadow:var(--shadow-md)}
-.chip.on .sw{opacity:1;box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 25%,transparent)}
+.chip.on .sw{background:var(--c);color:#fff}
 .chip.on .n{background:var(--c);color:#fff}
 
 .games{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
@@ -467,17 +473,17 @@ const CLASSES = [
 ];
 
 const SUBJECTS = {
-  math:     { name:'Mathematics',   color:'#10b981' },
-  science:  { name:'Science',       color:'#0ea5e9' },
-  english:  { name:'English',       color:'#f0567d' },
-  grammar:  { name:'Grammar',       color:'#3b82f6' },
-  hindi:    { name:'Hindi',         color:'#f59e0b' },
-  sst:      { name:'SST',           color:'#f97316' },
-  evs:      { name:'EVS',           color:'#22c55e' },
-  ai:       { name:'AI & Robotics', color:'#8b5cf6' },
-  ga:       { name:'General Awareness', color:'#eab308' },
-  allinone: { name:'All in One',    color:'#ec4899' },
-  rhymes:   { name:'Rhymes',        color:'#d946ef' },
+  math:     { name:'Mathematics',   color:'#10b981', icon:'calc' },
+  science:  { name:'Science',       color:'#0ea5e9', icon:'flask' },
+  english:  { name:'English',       color:'#f0567d', icon:'pencil' },
+  grammar:  { name:'Grammar',       color:'#3b82f6', icon:'trophy' },
+  hindi:    { name:'Hindi',         color:'#f59e0b', icon:'book' },
+  sst:      { name:'SST',           color:'#f97316', icon:'map' },
+  evs:      { name:'EVS',           color:'#22c55e', icon:'leaf' },
+  ai:       { name:'AI & Robotics', color:'#8b5cf6', icon:'robot' },
+  ga:       { name:'General Awareness', color:'#eab308', icon:'bulb' },
+  allinone: { name:'All in One',    color:'#ec4899', icon:'star' },
+  rhymes:   { name:'Rhymes',        color:'#d946ef', icon:'music' },
 };
 
 /* Class & UI line icons (24x24, Lucide-style) */
@@ -604,11 +610,11 @@ function renderHome(){
   let i=0, html='';
   for(const st of STAGES){
     const cls = CLASSES.filter(c=>c.stage===st.id);
-    html += `<div class="section-head"><h2 style="--c:${st.color}"><span class="dot"></span>${esc(st.name)}</h2><div class="meta">${cls.length} classes</div></div><div class="class-grid">`;
+    html += `<div class="section-head"><h2 style="--c:${st.color}"><span class="dot">${ci(st.icon)}</span>${esc(st.name)}</h2><div class="meta">${cls.length} classes</div></div><div class="class-grid">`;
     for(const c of cls){
       const gs = gamesFor(c.id);
       html += `<button class="class-card" style="--c:${c.color};--i:${i++}" data-class="${c.id}" aria-label="Open ${esc(c.name)} simulations">
-        <div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} simulations</span></div>
+        <div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${ci('gamepad')}${gs.length} simulations</span></div>
         <div class="row"><div><h3>${esc(c.name)}</h3></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </button>`;
     }
@@ -638,17 +644,17 @@ function renderClass(){
   const c = classById(state.classId); if(!c) return go('home');
   const st = STAGES.find(s=>s.id===c.stage);
   const all = gamesFor(c.id);
-  $('#dStage').textContent = st.name;
+  $('#dStage').innerHTML = `${ci(st.icon)} ${esc(st.name)}`;
   $('#dEmoji').innerHTML = ci(c.icon); $('#dEmoji').style.setProperty('--c', c.color);
   $('#dName').textContent = c.name;
-  $('#dSub').textContent = `${all.length} simulations`;
+  $('#dSub').innerHTML = `${ci('gamepad')}${all.length} simulations`;
 
 
   // subject chips
   const subs = [...new Set(all.map(g=>g.subject))];
   if(state.subject!=='all' && !subs.includes(state.subject)) state.subject='all';
-  const chip = (id,name,color,n) => `<button class="chip ${state.subject===id?'on':''}" role="tab" aria-selected="${state.subject===id}" data-sub="${id}" style="--c:${color}"><span class="sw"></span>${esc(name)}</button>`;
-  $('#filters').innerHTML = chip('all','All','var(--brand)',all.length) + subs.map(s=>chip(s,SUBJECTS[s].name,SUBJECTS[s].color,all.filter(g=>g.subject===s).length)).join('');
+  const chip = (id,name,color,n,icon) => `<button class="chip ${state.subject===id?'on':''}" role="tab" aria-selected="${state.subject===id}" data-sub="${id}" style="--c:${color}"><span class="sw">${icon? (ICONS[icon]||'') : ci('sparkles')}</span>${esc(name)}</button>`;
+  $('#filters').innerHTML = chip('all','All','var(--brand)',all.length) + subs.map(s=>chip(s,SUBJECTS[s].name,SUBJECTS[s].color,all.filter(g=>g.subject===s).length,SUBJECTS[s].icon)).join('');
   $('#filters').onclick = e => { const b=e.target.closest('[data-sub]'); if(!b) return; state.subject=b.dataset.sub; renderClass(); };
 
   const list = state.subject==='all' ? all : all.filter(g=>g.subject===state.subject);
@@ -672,7 +678,7 @@ function renderSearch(){
   let html='', total=games.length;
   if(matchCls.length){
     html += `<div class="result-group"><div class="gh"><span class="em">${ci('cap')}</span>Classes <span class="n">${matchCls.length}</span></div><div class="class-grid">` +
-      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} simulations</span></div><div class="row"><div><h3>${esc(c.name)}</h3></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
+      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${ci('gamepad')}${gs.length} simulations</span></div><div class="row"><div><h3>${esc(c.name)}</h3></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
   }
   // group games by class stage for clarity
   for(const st of STAGES){
@@ -705,7 +711,7 @@ function show(view){
   $('#view'+view[0].toUpperCase()+view.slice(1)).classList.add('active');
   if(view==='class') renderClass(); else if(view==='search') renderSearch();
   const c = classById(state.classId);
-  $('#crumb').innerHTML = view==='class' && c ? `<button data-nav="home">All classes</button><span>›</span><span class="cur">${esc(c.name)}</span>` : view==='search' ? `<span class="cur">Search</span>` : `<span class="cur">All classes</span>`;
+  $('#crumb').innerHTML = view==='class' && c ? `<button data-nav="home">${ci('home')} All classes</button><span>›</span><span class="cur">${esc(c.name)}</span>` : view==='search' ? `<span class="cur">Search</span>` : `<span class="cur">All classes</span>`;
   $('#crumb').onclick = e => e.target.closest('[data-nav]') && go('home');
   document.title = (view==='class' && c ? `${c.name} · ` : '') + 'Edubull Studio';
   syncNav();
