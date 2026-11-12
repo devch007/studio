@@ -115,7 +115,8 @@ a{color:inherit;text-decoration:none}
   width:100%;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;
   color:var(--text-2);font-weight:600;font-size:14.5px;transition:all .2s var(--ease);position:relative;text-align:left
 }
-.nav-item .em{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:var(--surface-2);flex:none;transition:transform .2s var(--ease)}
+.nav-item .em{--c:var(--brand);width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);flex:none;transition:transform .2s var(--ease)}
+.nav-item .em svg{width:17px;height:17px}
 .nav-item .lbl{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav-item .cnt{font-size:11px;font-weight:700;min-width:26px;height:22px;padding:0 7px;border-radius:999px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand)}
 .nav-item:hover{background:var(--brand-soft);color:var(--text)}
@@ -179,10 +180,9 @@ a{color:inherit;text-decoration:none}
 .hero p{margin:0 0 18px;font-size:16px;color:var(--text-2);max-width:520px}
 .hero .steps{display:flex;gap:10px;flex-wrap:wrap}
 .step{display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:999px;background:var(--surface-solid);border:1px solid var(--border);font-size:13.5px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow-sm)}
-.step i{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;font-style:normal;font-size:15px;background:var(--brand-soft)}
+.step i{--c:var(--brand);width:30px;height:30px;border-radius:999px;display:grid;place-items:center;font-style:normal;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.step i svg{width:16px;height:16px}
 .step-arrow{align-self:center;color:var(--text-3);font-weight:700}
-.step.alt i{background:var(--accent)}
-.step.alt2 i{background:#11b981}
 
 /* Orbit stat */
 .orbit{position:relative;width:min(300px,100%);aspect-ratio:1;margin:0 auto;display:grid;place-items:center}
@@ -195,9 +195,10 @@ a{color:inherit;text-decoration:none}
 .orbit .core b{font-size:52px;font-weight:800;letter-spacing:-2px;line-height:1;color:var(--text)}
 .orbit .core span{font-size:13px;font-weight:600;color:var(--text-2);margin-top:4px}
 .orbit .sat{
-  position:absolute;width:44px;height:44px;border-radius:14px;background:var(--surface-solid);display:grid;place-items:center;font-size:20px;
+  --c:var(--brand);position:absolute;width:44px;height:44px;border-radius:14px;background:var(--surface-solid);display:grid;place-items:center;color:var(--c);
   box-shadow:var(--shadow-md);animation:float 5s ease-in-out infinite
 }
+.orbit .sat svg{width:22px;height:22px}
 .orbit .sat:nth-child(4){top:3%;left:16%}
 .orbit .sat:nth-child(5){top:12%;right:6%;animation-delay:-1.3s}
 .orbit .sat:nth-child(6){bottom:8%;left:8%;animation-delay:-2.4s}
@@ -228,8 +229,9 @@ a{color:inherit;text-decoration:none}
 }
 .class-card .tile::before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.28);right:-60px;top:-70px}
 .class-card .tile::after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.2);left:-40px;bottom:-50px}
-.class-card .ico{font-size:72px;line-height:1;filter:drop-shadow(0 10px 14px color-mix(in srgb,var(--c) 45%,transparent));transition:transform .4s var(--ease);position:relative;z-index:1}
-.class-card:hover .ico{transform:scale(1.15) rotate(-8deg)}
+.class-card .ico{position:relative;z-index:1;width:92px;height:92px;border-radius:28px;display:grid;place-items:center;color:var(--c);background:rgba(255,255,255,.75);box-shadow:0 12px 24px color-mix(in srgb,var(--c) 30%,transparent),inset 0 1px 0 #fff;transition:transform .4s var(--ease)}
+.class-card .ico svg{width:48px;height:48px}
+.class-card:hover .ico{transform:scale(1.1) rotate(-6deg)}
 .class-card .pill{position:absolute;top:10px;right:10px;z-index:1;font-size:11px;font-weight:800;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--c)}
 .class-card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 8px 6px}
 .class-card h3{margin:0;font-size:20px;font-weight:800;letter-spacing:-.5px}
@@ -248,7 +250,8 @@ a{color:inherit;text-decoration:none}
 .back:hover{background:var(--brand);color:#fff;transform:translateX(-3px);box-shadow:var(--shadow-md)}
 .detail-head .title .k{font-size:12.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;gap:8px}
 .detail-head h1{margin:2px 0 4px;font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-1.4px;line-height:1.05;display:flex;align-items:center;gap:12px}
-.detail-head h1 .big{font-size:1.1em;filter:drop-shadow(0 6px 10px rgba(0,0,0,.12))}
+.detail-head h1 .big{--c:var(--brand);width:56px;height:56px;border-radius:18px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,color-mix(in srgb,var(--c) 75%,#fff),var(--c));box-shadow:0 10px 22px color-mix(in srgb,var(--c) 40%,transparent)}
+.detail-head h1 .big svg{width:28px;height:28px}
 .detail-head p{margin:0;color:var(--text-2);font-size:14.5px}
 
 .filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:22px;padding:6px;border-radius:20px;background:var(--surface-2);border:1px solid var(--border);width:fit-content;max-width:100%}
@@ -303,14 +306,14 @@ a{color:inherit;text-decoration:none}
 .game .fav.on{color:#fff;background:var(--accent)}
 
 .empty{display:grid;place-items:center;text-align:center;padding:70px 20px;border-radius:var(--radius-lg);border:1.5px dashed var(--border-strong);color:var(--text-2)}
-.empty .big{font-size:46px;margin-bottom:10px}
+.empty .big{width:64px;height:64px;color:var(--brand);margin-bottom:10px}.empty .big svg{width:100%;height:100%}
 .empty b{font-size:18px;color:var(--text);display:block;margin-bottom:4px}
 .empty button{margin-top:16px;height:40px;padding:0 18px;border-radius:12px;background:var(--brand);color:#fff;font-weight:700}
 
 /* Search results view */
 .result-group{margin-bottom:28px}
 .result-group .gh{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px;font-weight:800;color:var(--text-2)}
-.result-group .gh .em{font-size:18px}
+.result-group .gh .em{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand)}.result-group .gh .em svg{width:16px;height:16px}
 .result-group .gh .n{font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--brand-soft);color:var(--brand)}
 
 /* Toast */
@@ -339,7 +342,7 @@ a{color:inherit;text-decoration:none}
   .detail-head{grid-template-columns:auto 1fr}
     .games{grid-template-columns:repeat(2,1fr);gap:12px}
   .class-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .class-card .tile{height:120px}.class-card .ico{font-size:56px}
+  .class-card .tile{height:120px}.class-card .ico{width:70px;height:70px;border-radius:20px}.class-card .ico svg{width:36px;height:36px}
   }
 @media (max-width:520px){
   .game .tile{height:130px}.game .ico{width:70px;height:70px;border-radius:20px}.game .ico svg{width:36px;height:36px}.game .ico .hi{font-size:36px}
@@ -391,18 +394,18 @@ a{color:inherit;text-decoration:none}
       <section class="view active" id="viewHome" aria-label="Choose your class">
         <div class="hero">
           <div>
-            <div class="greet"><span id="greetText">Good afternoon</span> 👋</div>
+            <div class="greet"><span id="greetText">Good afternoon</span></div>
             <h1>Pick your <span>class</span></h1>
             <div class="steps">
-              <div class="step"><i>🎓</i> Class</div><span class="step-arrow">→</span>
-              <div class="step alt"><i>📚</i> Subject</div><span class="step-arrow">→</span>
-              <div class="step alt2"><i>🎮</i> Play</div>
+              <div class="step"><i style="--c:#5b5bd6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></i> Class</div><span class="step-arrow">→</span>
+              <div class="step alt"><i style="--c:#f0567d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></i> Subject</div><span class="step-arrow">→</span>
+              <div class="step alt2"><i style="--c:#11b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></i> Play</div>
             </div>
           </div>
           <div class="orbit" aria-hidden="true">
             <div class="ring"></div><div class="ring r2"></div>
             <div class="core"><b id="statGames">0</b><span>Subject Games</span></div>
-            <div class="sat">🧮</div><div class="sat">🔬</div><div class="sat">🤖</div><div class="sat">📚</div>
+            <div class="sat" style="--c:#10b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg></div><div class="sat" style="--c:#0ea5e9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7M14.5 16h-5"/></svg></div><div class="sat" style="--c:#8b5cf6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div><div class="sat" style="--c:#f0567d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
             <div class="tag t">INTERACTIVE</div><div class="tag b">DISCOVERY</div>
           </div>
         </div>
@@ -440,23 +443,23 @@ a{color:inherit;text-decoration:none}
    Game links point to edubull.com/studio/<slug>; swap `url` as needed.
    ============================================================ */
 const STAGES = [
-  { id:'early',   name:'Early Years',   color:'#f59e0b', blurb:'Play-first foundations: sounds, strokes, shapes and numbers.' },
-  { id:'primary', name:'Primary School',color:'#5b5bd6', blurb:'Core subjects turned into adventures, quests and puzzles.' },
-  { id:'middle',  name:'Middle School', color:'#0ea5a4', blurb:'Deeper concepts, logic, coding and real-world science.' },
+  { id:'early',   name:'Early Years',   icon:'baby',     color:'#f59e0b', blurb:'Play-first foundations: sounds, strokes, shapes and numbers.' },
+  { id:'primary', name:'Primary School',icon:'backpack', color:'#5b5bd6', blurb:'Core subjects turned into adventures, quests and puzzles.' },
+  { id:'middle',  name:'Middle School', icon:'rocket',   color:'#0ea5a4', blurb:'Deeper concepts, logic, coding and real-world science.' },
 ];
 
 const CLASSES = [
-  { id:'nursery', name:'Nursery', short:'Nursery', emoji:'🧸', stage:'early',   color:'#f0567d', sub:'Ages 3–4 · Pre-school' },
-  { id:'lkg',     name:'LKG',     short:'LKG',     emoji:'🐣', stage:'early',   color:'#f59e0b', sub:'Ages 4–5 · Lower KG' },
-  { id:'ukg',     name:'UKG',     short:'UKG',     emoji:'🦋', stage:'early',   color:'#a855f7', sub:'Ages 5–6 · Upper KG' },
-  { id:'class1',  name:'Class 1', short:'1',       emoji:'✏️', stage:'primary', color:'#5b5bd6', sub:'Ages 6–7' },
-  { id:'class2',  name:'Class 2', short:'2',       emoji:'🖍️', stage:'primary', color:'#0ea5e9', sub:'Ages 7–8' },
-  { id:'class3',  name:'Class 3', short:'3',       emoji:'🎒', stage:'primary', color:'#10b981', sub:'Ages 8–9' },
-  { id:'class4',  name:'Class 4', short:'4',       emoji:'🔍', stage:'primary', color:'#f97316', sub:'Ages 9–10' },
-  { id:'class5',  name:'Class 5', short:'5',       emoji:'🧭', stage:'primary', color:'#ec4899', sub:'Ages 10–11' },
-  { id:'class6',  name:'Class 6', short:'6',       emoji:'📐', stage:'middle',  color:'#0ea5a4', sub:'Ages 11–12' },
-  { id:'class7',  name:'Class 7', short:'7',       emoji:'🧪', stage:'middle',  color:'#6366f1', sub:'Ages 12–13' },
-  { id:'class8',  name:'Class 8', short:'8',       emoji:'🚀', stage:'middle',  color:'#8b5cf6', sub:'Ages 13–14' },
+  { id:'nursery', name:'Nursery', short:'Nursery', icon:'baby', stage:'early',   color:'#f0567d', sub:'Ages 3–4 · Pre-school' },
+  { id:'lkg',     name:'LKG',     short:'LKG',     icon:'blocks', stage:'early',   color:'#f59e0b', sub:'Ages 4–5 · Lower KG' },
+  { id:'ukg',     name:'UKG',     short:'UKG',     icon:'sparkles', stage:'early',   color:'#a855f7', sub:'Ages 5–6 · Upper KG' },
+  { id:'class1',  name:'Class 1', short:'1',       icon:'pencil', stage:'primary', color:'#5b5bd6', sub:'Ages 6–7' },
+  { id:'class2',  name:'Class 2', short:'2',       icon:'palette', stage:'primary', color:'#0ea5e9', sub:'Ages 7–8' },
+  { id:'class3',  name:'Class 3', short:'3',       icon:'backpack', stage:'primary', color:'#10b981', sub:'Ages 8–9' },
+  { id:'class4',  name:'Class 4', short:'4',       icon:'search', stage:'primary', color:'#f97316', sub:'Ages 9–10' },
+  { id:'class5',  name:'Class 5', short:'5',       icon:'compass', stage:'primary', color:'#ec4899', sub:'Ages 10–11' },
+  { id:'class6',  name:'Class 6', short:'6',       icon:'ruler', stage:'middle',  color:'#0ea5a4', sub:'Ages 11–12' },
+  { id:'class7',  name:'Class 7', short:'7',       icon:'tube', stage:'middle',  color:'#6366f1', sub:'Ages 12–13' },
+  { id:'class8',  name:'Class 8', short:'8',       icon:'rocket', stage:'middle',  color:'#8b5cf6', sub:'Ages 13–14' },
 ];
 
 const SUBJECTS = {
@@ -472,6 +475,27 @@ const SUBJECTS = {
   allinone: { name:'All in One',    color:'#ec4899' },
   rhymes:   { name:'Rhymes',        color:'#d946ef' },
 };
+
+/* Class & UI line icons (24x24, Lucide-style) */
+const CI = {
+  home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
+  baby:'<path d="M9 12h.01M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>',
+  blocks:'<rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1h-3"/>',
+  sparkles:'<path d="M9.9 2.1 11.5 6.4a2 2 0 0 0 1.2 1.2l4.3 1.6a1 1 0 0 1 0 1.9l-4.3 1.6a2 2 0 0 0-1.2 1.2l-1.6 4.3a1 1 0 0 1-1.9 0l-1.6-4.3a2 2 0 0 0-1.2-1.2l-4.3-1.6a1 1 0 0 1 0-1.9l4.3-1.6a2 2 0 0 0 1.2-1.2l1.6-4.3a1 1 0 0 1 1.9 0Z"/><path d="M20 3v4M22 5h-4"/>',
+  pencil:'<path d="M21.2 6.4 17.6 2.8a1 1 0 0 0-1.4 0L3 16l-1 6 6-1L21.2 7.8a1 1 0 0 0 0-1.4Z"/><path d="m15 5 4 4"/>',
+  palette:'<circle cx="13.5" cy="6.5" r=".6" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.6 0-.4-.2-.8-.4-1.1-.3-.3-.4-.6-.4-1 0-.9.7-1.6 1.6-1.6H16c3.3 0 6-2.7 6-6 0-4.9-4.5-8.7-10-8.7Z"/>',
+  backpack:'<path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 22v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/><path d="M8 10h8"/>',
+  search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  compass:'<circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.4-6.3 2 2.1-6.4z"/>',
+  ruler:'<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/>',
+  tube:'<path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7M14.5 16h-5"/>',
+  rocket:'<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  cap:'<path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  book:'<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+  gamepad:'<path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/><rect width="20" height="12" x="2" y="6" rx="2"/>',
+  balloon:'<path d="M12 2a6 7 0 0 0-6 7c0 4 3 7 6 7s6-3 6-7a6 7 0 0 0-6-7z"/><path d="M12 16v2M11 18h2l-1 4"/>',
+};
+const ci = (name, sw=2) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CI[name]||CI.sparkles}</svg>`;
 
 /* SVG icon library (keyed) */
 const ICONS = {
@@ -543,11 +567,11 @@ const app = $('#app');
 
 /* ---------- Sidebar ---------- */
 function renderNav(){
-  let html = `<button class="nav-item home" data-nav="home"><span class="em">🏠</span><span class="lbl">All Classes</span><span class="cnt">${CLASSES.length}</span></button>`;
+  let html = `<button class="nav-item home" data-nav="home"><span class="em" style="--c:var(--brand)">${ci('home')}</span><span class="lbl">All Classes</span><span class="cnt">${CLASSES.length}</span></button>`;
   for(const st of STAGES){
     html += `<div class="nav-group">${esc(st.name)}</div>`;
     for(const c of CLASSES.filter(c=>c.stage===st.id)){
-      html += `<button class="nav-item" data-nav="${c.id}" title="${esc(c.name)}"><span class="em">${c.emoji}</span><span class="lbl">${esc(c.name)}</span><span class="cnt">${gamesFor(c.id).length}</span></button>`;
+      html += `<button class="nav-item" data-nav="${c.id}" title="${esc(c.name)}"><span class="em" style="--c:${c.color}">${ci(c.icon)}</span><span class="lbl">${esc(c.name)}</span><span class="cnt">${gamesFor(c.id).length}</span></button>`;
     }
   }
   $('#nav').innerHTML = html;
@@ -569,7 +593,7 @@ function renderHome(){
     for(const c of cls){
       const gs = gamesFor(c.id);
       html += `<button class="class-card" style="--c:${c.color};--i:${i++}" data-class="${c.id}" aria-label="Open ${esc(c.name)} games">
-        <div class="tile"><span class="ico">${c.emoji}</span><span class="pill">${gs.length} games</span></div>
+        <div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} games</span></div>
         <div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </button>`;
     }
@@ -600,7 +624,7 @@ function renderClass(){
   const st = STAGES.find(s=>s.id===c.stage);
   const all = gamesFor(c.id);
   $('#dStage').textContent = st.name;
-  $('#dEmoji').textContent = c.emoji;
+  $('#dEmoji').innerHTML = ci(c.icon); $('#dEmoji').style.setProperty('--c', c.color);
   $('#dName').textContent = c.name;
   $('#dSub').textContent = `${c.sub} · ${all.length} games`;
 
@@ -614,13 +638,13 @@ function renderClass(){
 
   const list = state.subject==='all' ? all : all.filter(g=>g.subject===state.subject);
   $('#games').innerHTML = list.length ? list.map(gameCard).join('')
-    : `<div class="empty" style="grid-column:1/-1"><div class="big">🎈</div><b>No games here yet</b>New ${esc(c.name)} studios are on the way.<br><button data-sub="all">Show all subjects</button></div>`;
+    : `<div class="empty" style="grid-column:1/-1"><div class="big">${ci('balloon',1.5)}</div><b>No games here yet</b>New ${esc(c.name)} studios are on the way.<br><button data-sub="all">Show all subjects</button></div>`;
   $('#games').onclick = handleGameClick;
 }
 function handleGameClick(e){
   const f = e.target.closest('[data-fav]');
   if(f){ const id=f.dataset.fav; state.favs.has(id)?state.favs.delete(id):state.favs.add(id); store.set('favs',[...state.favs]);
-    toast(state.favs.has(id)?'Added to favourites ♥':'Removed from favourites'); state.view==='search'?renderSearch():renderClass(); return; }
+    toast(state.favs.has(id)?'Added to favourites':'Removed from favourites'); state.view==='search'?renderSearch():renderClass(); return; }
   const s = e.target.closest('[data-sub]'); if(s){ state.subject=s.dataset.sub; renderClass(); }
 }
 
@@ -632,18 +656,18 @@ function renderSearch(){
   const games = GAMES.filter(hit);
   let html='', total=games.length;
   if(matchCls.length){
-    html += `<div class="result-group"><div class="gh"><span class="em">🎓</span>Classes <span class="n">${matchCls.length}</span></div><div class="class-grid">` +
-      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${c.emoji}</span><span class="pill">${gs.length} games</span></div><div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
+    html += `<div class="result-group"><div class="gh"><span class="em">${ci('cap')}</span>Classes <span class="n">${matchCls.length}</span></div><div class="class-grid">` +
+      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} games</span></div><div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
   }
   // group games by class stage for clarity
   for(const st of STAGES){
     const cls = CLASSES.filter(c=>c.stage===st.id).map(c=>c.id);
     const gs = games.filter(g=>g.classes.some(c=>cls.includes(c)));
     if(!gs.length) continue;
-    html += `<div class="result-group"><div class="gh"><span class="em">${st.id==='early'?'🧸':st.id==='primary'?'🎒':'🚀'}</span>${esc(st.name)} <span class="n">${gs.length}</span></div><div class="games">${gs.map(gameCard).join('')}</div></div>`;
+    html += `<div class="result-group"><div class="gh"><span class="em">${ci(st.icon)}</span>${esc(st.name)} <span class="n">${gs.length}</span></div><div class="games">${gs.map(gameCard).join('')}</div></div>`;
   }
   $('#searchMeta').textContent = `${total} game${total===1?'':'s'}${matchCls.length?` and ${matchCls.length} class${matchCls.length===1?'':'es'}`:''} for “${state.query.trim()}”`;
-  $('#searchResults').innerHTML = html || `<div class="empty"><div class="big">🔍</div><b>Nothing found</b>Try “math”, “hindi”, “class 3” or “robot”.</div>`;
+  $('#searchResults').innerHTML = html || `<div class="empty"><div class="big">${ci('search',1.5)}</div><b>Nothing found</b>Try “math”, “hindi”, “class 3” or “robot”.</div>`;
   $('#searchResults').onclick = e => { const b=e.target.closest('[data-class]'); if(b){ clearSearch(); go('class', b.dataset.class); return; } handleGameClick(e); };
 }
 const searchInput = $('#searchInput'), searchBox = $('#searchBox');
