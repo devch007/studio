@@ -102,24 +102,31 @@ a{color:inherit;text-decoration:none}
 .unit-nav button:disabled{opacity:.35;cursor:not-allowed}
 .unit-nav .ms{--is:18px}
 
-.topics{display:grid;gap:12px}
-.topic{--c:var(--brand);display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:14px 16px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all .25s var(--ease);animation:fade .45s var(--ease) both;animation-delay:calc(var(--i)*45ms)}
-.topic:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--c) 35%,transparent)}
-.topic .idx{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
-.topic .idx .ms{--is:22px}
-.topic h4{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-.2px;line-height:1.3}
-.topic .file{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-3);font-weight:600;margin-top:3px}
-.topic .file .ms{--is:14px}
-.topic .file code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;background:var(--surface-2);padding:2px 6px;border-radius:6px;border:1px solid var(--border)}
-.topic .actions{display:flex;gap:8px}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.topic{--c:var(--brand);display:flex;flex-direction:column;padding:10px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;animation:fade .45s var(--ease) both;animation-delay:calc(var(--i)*45ms)}
+.topic:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--c) 35%,transparent)}
+.topic .tile{position:relative;height:150px;border-radius:17px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(150deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 72%,#000))}
+.topic .tile::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.14);right:-80px;top:-100px}
+.topic .tile::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(0,0,0,.08);left:-50px;bottom:-70px}
+.topic .big{position:relative;z-index:1;width:76px;height:76px;border-radius:24px;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 14px 28px rgba(0,0,0,.18);transition:transform .35s var(--ease)}
+.topic .big .ms{--is:42px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
+.topic:hover .big{transform:scale(1.1) rotate(-5deg)}
+.topic .badge{position:absolute;z-index:1;left:12px;top:12px;display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 10px 5px 8px;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(6px)}
+.topic .badge .ms{--is:14px}
+.topic .body{display:flex;flex-direction:column;padding:14px 8px 6px}
+.topic h4{margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:-.3px;line-height:1.3;min-height:42px}
+.topic .meta{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-3);font-weight:600}
+.topic .meta .ms{--is:14px}
+.topic .actions{display:flex;gap:8px;margin-top:14px}
+.topic .actions .btn.primary{flex:1;justify-content:center}
 .btn{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:12px;font-size:13px;font-weight:800;background:var(--surface-solid);color:var(--text);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all .25s var(--ease);white-space:nowrap}
 .btn .ms{--is:18px}
 .btn.primary{background:var(--c,var(--brand));color:#fff;border-color:transparent;box-shadow:0 8px 18px color-mix(in srgb,var(--c,var(--brand)) 35%,transparent)}
 .btn.primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
 .btn.ghost:hover{background:var(--brand-soft);color:var(--brand)}
 .btn.icon{width:40px;padding:0;justify-content:center}
-.btn.soon{background:var(--surface-2);color:var(--text-3);box-shadow:none;cursor:default}
-.topic.soon{opacity:.75}
+.btn.soon{background:var(--surface-2);color:var(--text-3);box-shadow:none;cursor:default;flex:1;justify-content:center}
+.topic.soon .tile{background:linear-gradient(150deg,#c9cbe0,#a9acc6);filter:saturate(.6)}
 .topic.soon h4{color:var(--text-2)}
 
 /* ---------- Search results ---------- */
@@ -151,10 +158,10 @@ footer b{color:var(--text-2)}
 @media (max-width:980px){@media (max-width:720px){
   .top{padding:12px 16px;flex-wrap:wrap}.crumb{display:none}.search{margin-left:0;flex:1;width:auto}.search kbd{display:none}
   .wrap{padding:4px 16px 48px}  .units{grid-template-columns:1fr 1fr;gap:12px}.unit{padding:14px}.unit h3{font-size:14.5px;min-height:0}.unit .sub{display:none}
-  .topic{grid-template-columns:auto 1fr;padding:12px}.topic .actions{grid-column:1/-1;justify-content:stretch}.topic .actions .btn{flex:1;justify-content:center}.topic .file:has(code){display:none}
+  .topics{grid-template-columns:1fr 1fr;gap:12px}.topic .tile{height:120px}.topic .big{width:60px;height:60px;border-radius:18px}.topic .big .ms{--is:32px}.topic h4{font-size:14px;min-height:0}.topic .meta{display:none}
   .modal{padding:10px}.modal .box{border-radius:18px}
 }
-@media (max-width:420px){.units{grid-template-columns:1fr}}
+@media (max-width:420px){.units,.topics{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -301,15 +308,20 @@ $('#units').onclick=e=>{const b=e.target.closest('[data-unit]');if(b)go('unit',+
 /* ---------- Topic rows ---------- */
 function topicRow(u,t,i,showUnit=false){
   const has=!!t.file;
-  return `<div class="topic ${has?'':'soon'}" style="--c:${u.color};--i:${i}">
-    <span class="idx">${has?`<span class="ms fill">play_arrow</span>`:`<span class="ms">hourglass_top</span>`}</span>
-    <div><h4>${esc(t.t)}</h4>
-      <div class="file">${showUnit?`<span class="ms">menu_book</span>Unit ${u.n} · ${esc(u.name)}`:(has?`<span class="ms">movie</span><code>${esc(t.file)}</code>`:`<span class="ms">schedule</span>Video coming soon`)}</div></div>
-    <div class="actions">${has
-      ?`<button class="btn primary" data-play="${u.n}:${i}"><span class="ms fill">play_circle</span>Watch video</button>
-        <a class="btn ghost icon" href="${esc(url(t.file))}" target="_blank" rel="noopener" title="Open in new tab"><span class="ms">open_in_new</span></a>`
-      :`<span class="btn soon"><span class="ms">schedule</span>Coming soon</span>`}</div>
-  </div>`;
+  return `<article class="topic ${has?'':'soon'}" style="--c:${u.color};--i:${i}">
+    <div class="tile">
+      <span class="badge"><span class="ms">${has?'play_circle':'schedule'}</span>${has?'Activity '+(i+1):'Coming soon'}</span>
+      <span class="big"><span class="ms fill">${has?'play_arrow':'hourglass_top'}</span></span>
+    </div>
+    <div class="body">
+      <h4>${esc(t.t)}</h4>
+      <div class="meta"><span class="ms">menu_book</span>Unit ${u.n}${showUnit?' · '+esc(u.name):''}</div>
+      <div class="actions">${has
+        ?`<button class="btn primary" data-play="${u.n}:${i}"><span class="ms fill">play_circle</span>Watch</button>
+          <a class="btn ghost icon" href="${esc(url(t.file))}" target="_blank" rel="noopener" title="Open in new tab"><span class="ms">open_in_new</span></a>`
+        :`<span class="btn soon"><span class="ms">schedule</span>Coming soon</span>`}</div>
+    </div>
+  </article>`;
 }
 function renderUnit(){
   const u=unitByN(state.unit); if(!u) return go('home');
