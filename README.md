@@ -3,7 +3,7 @@
 Redesigned `/studio` page for edubull.com — a single, self-contained HTML file (`index.html`) with no build step.
 
 ## Workflow
-1. **Choose a class** — Early Years (Nursery, LKG, UKG), Primary (Class 1–5), Middle (Class 6–8).
+1. **Choose a class** — Early Years, Primary (Class 1–5), Middle (Class 6–8). Classes 1–8 offer Maths, Science and CT.
 2. **Pick a subject** — filter chips show only the subjects that have simulations for that class.
 3. **Play** — each simulation card links to its studio URL.
 

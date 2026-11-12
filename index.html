@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edubull Studio · Learning Simulations by Class</title>
-<meta name="description" content="Edubull Studio — pick your class, then dive into subject-wise interactive learning simulations for Nursery to Class 8.">
+<meta name="description" content="Edubull Studio — pick your class, then dive into subject-wise interactive learning simulations for Early Years to Class 8.">
 <meta name="theme-color" content="#eceefa">
 <meta name="color-scheme" content="light only">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235b5bd6'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3Eeb%3C/text%3E%3C/svg%3E">
@@ -478,17 +478,15 @@ const STAGES = [
 ];
 
 const CLASSES = [
-  { id:'nursery', name:'Nursery', short:'Nursery', icon:'baby', stage:'early',   color:'#f0567d', sub:'Ages 3–4 · Pre-school' },
-  { id:'lkg',     name:'LKG',     short:'LKG',     icon:'blocks', stage:'early',   color:'#f59e0b', sub:'Ages 4–5 · Lower KG' },
-  { id:'ukg',     name:'UKG',     short:'UKG',     icon:'sparkles', stage:'early',   color:'#a855f7', sub:'Ages 5–6 · Upper KG' },
-  { id:'class1',  name:'Class 1', short:'1',       icon:'pencil', stage:'primary', color:'#5b5bd6', sub:'Ages 6–7' },
-  { id:'class2',  name:'Class 2', short:'2',       icon:'palette', stage:'primary', color:'#0ea5e9', sub:'Ages 7–8' },
-  { id:'class3',  name:'Class 3', short:'3',       icon:'backpack', stage:'primary', color:'#10b981', sub:'Ages 8–9' },
-  { id:'class4',  name:'Class 4', short:'4',       icon:'search', stage:'primary', color:'#f97316', sub:'Ages 9–10' },
-  { id:'class5',  name:'Class 5', short:'5',       icon:'compass', stage:'primary', color:'#ec4899', sub:'Ages 10–11' },
-  { id:'class6',  name:'Class 6', short:'6',       icon:'ruler', stage:'middle',  color:'#0ea5a4', sub:'Ages 11–12' },
-  { id:'class7',  name:'Class 7', short:'7',       icon:'tube', stage:'middle',  color:'#6366f1', sub:'Ages 12–13' },
-  { id:'class8',  name:'Class 8', short:'8',       icon:'rocket', stage:'middle',  color:'#8b5cf6', sub:'Ages 13–14' },
+  { id:'early',   name:'Early Years', short:'EY', icon:'baby',     stage:'early',   color:'#f0567d' },
+  { id:'class1',  name:'Class 1', short:'1', icon:'pencil',   stage:'primary', color:'#5b5bd6' },
+  { id:'class2',  name:'Class 2', short:'2', icon:'palette',  stage:'primary', color:'#0ea5e9' },
+  { id:'class3',  name:'Class 3', short:'3', icon:'backpack', stage:'primary', color:'#10b981' },
+  { id:'class4',  name:'Class 4', short:'4', icon:'search',   stage:'primary', color:'#f97316' },
+  { id:'class5',  name:'Class 5', short:'5', icon:'compass',  stage:'primary', color:'#ec4899' },
+  { id:'class6',  name:'Class 6', short:'6', icon:'ruler',    stage:'middle',  color:'#0ea5a4' },
+  { id:'class7',  name:'Class 7', short:'7', icon:'tube',     stage:'middle',  color:'#6366f1' },
+  { id:'class8',  name:'Class 8', short:'8', icon:'rocket',   stage:'middle',  color:'#8b5cf6' },
 ];
 
 const SUBJECTS = {
@@ -499,7 +497,7 @@ const SUBJECTS = {
   hindi:    { name:'Hindi',         color:'#f59e0b', icon:'book' },
   sst:      { name:'SST',           color:'#f97316', icon:'map' },
   evs:      { name:'EVS',           color:'#22c55e', icon:'leaf' },
-  ai:       { name:'AI & Robotics', color:'#8b5cf6', icon:'robot' },
+  ai:       { name:'CT',            color:'#8b5cf6', icon:'robot' },
   ga:       { name:'General Awareness', color:'#eab308', icon:'bulb' },
   allinone: { name:'All in One',    color:'#ec4899', icon:'star' },
   rhymes:   { name:'Rhymes',        color:'#d946ef', icon:'music' },
@@ -515,28 +513,26 @@ const ICONS = Object.fromEntries(Object.entries(MSN).map(([k,v])=>[k,`<span clas
 ICONS.hindiA='<span class="hi">अ</span>'; ICONS.hindiK='<span class="hi">क</span>';
 
 /* classes: list of class ids the game is available for */
-const E = ['nursery','lkg','ukg'];
+const E = ['early'];
 const P = ['class1','class2','class3','class4','class5'];
 const M = ['class6','class7','class8'];
+const ALL = [...P,...M];
 const GAMES = [
-  { id:'all-in-one-nursery', subject:'allinone', title:'All in One', desc:'Colours, shapes, alphabets and numbers in one playful bundle.', icon:'star', classes:['nursery'], tags:['Audio','Touch'] , url:'https://edubull.com/studio/all-in-one-nursery' },
-  { id:'pre-writing',   subject:'english', title:'Pre‑Writing', desc:'Pencil grip, tracing paths & fine motor skills.', icon:'pencil', classes:E, tags:['Tracing','Audio'], url:'https://edubull.com/studio/pre-writing' },
-  { id:'rhymes',        subject:'rhymes',  title:'Rhyme Time', desc:'Sing-along rhymes with actions, beats and picture cues.', icon:'music', classes:E, tags:['Audio','Video'], url:'https://edubull.com/studio/rhymes' },
-  { id:'hindi-swar',    subject:'hindi',   title:'हिंदी स्वर', titleHi:true, desc:'सचित्र स्वर पहचान और ध्वनि खेल', icon:'hindiA', classes:E, tags:['Audio','Pictures'], url:'https://edubull.com/studio/hindi-swar' },
-  { id:'shapes-colours',subject:'math',    title:'Shapes & Colours', desc:'Sort, match and build with shapes, colours and patterns.', icon:'shapes', classes:['nursery','lkg'], tags:['Drag & drop'], url:'https://edubull.com/studio/shapes-colours' },
-  { id:'number-ninja',  subject:'math',    title:'Number Ninja', desc:'Count, compare and pop numbers 1–50 with timed challenges.', icon:'calc', classes:['lkg','ukg','class1'], tags:['Timed','Levels'], url:'https://edubull.com/studio/number-ninja' },
-  { id:'ga-lkg',        subject:'ga',      title:'General Awareness', desc:'My body, family, seasons, helpers and the world around me.', icon:'bulb', classes:['lkg','ukg'], tags:['Quiz','Pictures'], url:'https://edubull.com/studio/general-awareness' },
-  { id:'phonics-fun',   subject:'english', title:'Phonics Fun', desc:'Letter sounds, blends and first sight words with monster friends.', icon:'book', classes:['ukg','class1'], tags:['Audio','Sight words'], url:'https://edubull.com/studio/phonics-fun' },
-  { id:'math-adventure',subject:'math',    title:'Math Adventure', desc:'Arithmetic, fractions & geometric puzzle world.', icon:'calc', classes:[...P,...M], tags:['Levels','Leaderboard'], url:'https://edubull.com/studio/math-adventure' },
-  { id:'science-explorer',subject:'science',title:'Science Explorer', desc:'Interactive natural science & STEM experiments.', icon:'flask', classes:[...P,...M], tags:['Experiments','3D'], url:'https://edubull.com/studio/science-explorer' },
-  { id:'ct-ai-quest',   subject:'ai',      title:'CT & AI Quest', desc:'Computational logic and algorithm basics.', icon:'robot', classes:['class3','class4','class5',...M], tags:['Logic','Puzzles'], url:'https://edubull.com/studio/ct-ai-quest' },
-  { id:'grammar-quest', subject:'grammar', title:'Grammar Quest', desc:'Phonics, sight words and monster challenges.', icon:'trophy', classes:[...P,...M], tags:['Quiz','Monsters'], url:'https://edubull.com/studio/grammar-quest' },
-  { id:'hindi-vyanjan', subject:'hindi',   title:'हिंदी व्यंजन', titleHi:true, desc:'व्यंजन, मात्राएँ और शब्द-निर्माण के खेल', icon:'hindiK', classes:P, tags:['Audio','Words'], url:'https://edubull.com/studio/hindi-vyanjan' },
-  { id:'evs-discovery', subject:'evs',     title:'EVS Discovery', desc:'Plants, animals, water and our neighbourhood explored hands-on.', icon:'leaf', classes:['class1','class2','class3'], tags:['Explore','Quiz'], url:'https://edubull.com/studio/evs-discovery' },
-  { id:'map-quest',     subject:'sst',     title:'Map Quest', desc:'History, geography and civics through maps and missions.', icon:'map', classes:['class4','class5',...M], tags:['Maps','Missions'], url:'https://edubull.com/studio/map-quest' },
-  { id:'coding-blocks', subject:'ai',      title:'Coding Blocks', desc:'Block-based coding: loops, conditions and your first robot.', icon:'code', classes:M, tags:['Blocks','Robotics'], url:'https://edubull.com/studio/coding-blocks' },
-  { id:'atom-lab',      subject:'science', title:'Atom Lab', desc:'Matter, elements and reactions in a safe virtual laboratory.', icon:'atom', classes:M, tags:['Lab','3D'], url:'https://edubull.com/studio/atom-lab' },
-  { id:'world-explorer',subject:'sst',     title:'World Explorer', desc:'Continents, cultures and timelines in a spin-the-globe simulation.', icon:'globe', classes:['class2','class3'], tags:['Globe','Pictures'], url:'https://edubull.com/studio/world-explorer' },
+  /* ---- Early Years ---- */
+  { id:'all-in-one',    subject:'allinone', title:'All in One', desc:'Colours, shapes, alphabets and numbers in one playful bundle.', icon:'star', classes:E, tags:['Audio','Touch'], url:'https://edubull.com/studio/all-in-one' },
+  { id:'pre-writing',   subject:'english',  title:'Pre‑Writing', desc:'Pencil grip, tracing paths & fine motor skills.', icon:'pencil', classes:E, tags:['Tracing','Audio'], url:'https://edubull.com/studio/pre-writing' },
+  { id:'rhymes',        subject:'rhymes',   title:'Rhyme Time', desc:'Sing-along rhymes with actions, beats and picture cues.', icon:'music', classes:E, tags:['Audio','Video'], url:'https://edubull.com/studio/rhymes' },
+  { id:'hindi-swar',    subject:'hindi',    title:'हिंदी स्वर', titleHi:true, desc:'सचित्र स्वर पहचान और ध्वनि खेल', icon:'hindiA', classes:E, tags:['Audio','Pictures'], url:'https://edubull.com/studio/hindi-swar' },
+  { id:'shapes-colours',subject:'math',     title:'Shapes & Colours', desc:'Sort, match and build with shapes, colours and patterns.', icon:'shapes', classes:E, tags:['Drag & drop'], url:'https://edubull.com/studio/shapes-colours' },
+  { id:'number-ninja',  subject:'math',     title:'Number Ninja', desc:'Count, compare and pop numbers 1–50 with timed challenges.', icon:'calc', classes:E, tags:['Timed','Levels'], url:'https://edubull.com/studio/number-ninja' },
+  { id:'general-awareness', subject:'ga',   title:'General Awareness', desc:'My body, family, seasons, helpers and the world around me.', icon:'bulb', classes:E, tags:['Quiz','Pictures'], url:'https://edubull.com/studio/general-awareness' },
+  { id:'phonics-fun',   subject:'english',  title:'Phonics Fun', desc:'Letter sounds, blends and first sight words with monster friends.', icon:'book', classes:E, tags:['Audio','Sight words'], url:'https://edubull.com/studio/phonics-fun' },
+  /* ---- Class 1–8: Maths · Science · CT ---- */
+  { id:'math-adventure',  subject:'math',    title:'Math Adventure', desc:'Arithmetic, fractions & geometric puzzle world.', icon:'calc', classes:ALL, tags:['Levels','Leaderboard'], url:'https://edubull.com/studio/math-adventure' },
+  { id:'science-explorer',subject:'science', title:'Science Explorer', desc:'Interactive natural science & STEM experiments.', icon:'flask', classes:ALL, tags:['Experiments','3D'], url:'https://edubull.com/studio/science-explorer' },
+  { id:'ct-ai-quest',     subject:'ai',      title:'CT & AI Quest', desc:'Computational logic and algorithm basics.', icon:'robot', classes:ALL, tags:['Logic','Puzzles'], url:'https://edubull.com/studio/ct-ai-quest' },
+  { id:'coding-blocks',   subject:'ai',      title:'Coding Blocks', desc:'Block-based coding: loops, conditions and your first robot.', icon:'code', classes:M, tags:['Blocks','Robotics'], url:'https://edubull.com/studio/coding-blocks' },
+  { id:'atom-lab',        subject:'science', title:'Atom Lab', desc:'Matter, elements and reactions in a safe virtual laboratory.', icon:'atom', classes:M, tags:['Lab','3D'], url:'https://edubull.com/studio/atom-lab' },
 ];
 
 /* ============================================================
@@ -576,8 +572,9 @@ const app = $('#app');
 function renderNav(){
   let html = `<button class="nav-item home" data-nav="home"><span class="em" style="--c:var(--brand)">${ci('home')}</span><span class="lbl">All Classes</span><span class="cnt">${CLASSES.length}</span></button>`;
   for(const st of STAGES){
-    html += `<div class="nav-group">${esc(st.name)}</div>`;
-    for(const c of CLASSES.filter(c=>c.stage===st.id)){
+    const stageClasses = CLASSES.filter(c=>c.stage===st.id);
+    if(!(stageClasses.length===1 && stageClasses[0].name===st.name)) html += `<div class="nav-group">${esc(st.name)}</div>`;
+    for(const c of stageClasses){
       html += `<button class="nav-item" data-nav="${c.id}" title="${esc(c.name)}"><span class="em" style="--c:${c.color}">${ci(c.icon)}</span><span class="lbl">${esc(c.name)}</span><span class="cnt">${gamesFor(c.id).length}</span></button>`;
     }
   }
@@ -596,7 +593,7 @@ function renderHome(){
   let i=0, html='';
   for(const st of STAGES){
     const cls = CLASSES.filter(c=>c.stage===st.id);
-    html += `<div class="section-head"><h2 style="--c:${st.color}"><span class="dot">${ci(st.icon)}</span>${esc(st.name)}</h2><div class="meta">${cls.length} classes</div></div><div class="class-grid">`;
+    html += `<div class="section-head"><h2 style="--c:${st.color}"><span class="dot">${ci(st.icon)}</span>${esc(st.name)}</h2><div class="meta">${cls.length} class${cls.length===1?"":"es"}</div></div><div class="class-grid">`;
     for(const c of cls){
       const gs = gamesFor(c.id);
       html += `<button class="class-card" style="--c:${c.color};--i:${i++}" data-class="${c.id}" aria-label="Open ${esc(c.name)} simulations">
