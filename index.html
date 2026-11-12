@@ -191,36 +191,29 @@ a{color:inherit;text-decoration:none}
 .step i svg{width:16px;height:16px}
 .step-arrow{align-self:center;color:var(--text-3);font-weight:700}
 
-/* Orbit stat */
-.orbit{position:relative;width:min(300px,100%);aspect-ratio:1;margin:0 auto;display:grid;place-items:center}
-.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--border-strong);animation:spin 60s linear infinite}
-.orbit .ring.r2{inset:11%;border-style:solid;border-color:var(--border);animation-direction:reverse;animation-duration:45s}
-.orbit .sweep{position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 72%,var(--brand-soft-2) 100%);
-  -webkit-mask:radial-gradient(circle,transparent 29%,#000 30%);mask:radial-gradient(circle,transparent 29%,#000 30%);animation:spin 7s linear infinite}
-.orbit .pulse{position:absolute;inset:21%;border-radius:50%;border:2px solid var(--brand);opacity:0;animation:pulse 3.2s ease-out infinite}
-.orbit .pulse.p2{animation-delay:1.6s}
-.orbit .core{
-  position:relative;z-index:2;width:58%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:var(--surface-solid);box-shadow:var(--shadow-lg),inset 0 0 0 10px var(--brand-soft);animation:breathe 4.5s ease-in-out infinite;
+/* Isometric tile cloud */
+.iso{position:relative;width:100%;max-width:420px;aspect-ratio:1.1;margin:0 auto;display:grid;place-items:center;perspective:1100px;padding-bottom:56px}
+.iso-scene{position:relative;width:270px;height:270px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;transform-style:preserve-3d;
+  transform:rotateX(55deg) rotateZ(-38deg) translateZ(calc(var(--ty,0) * 1px));transition:transform .5s var(--ease)}
+.iso .tile{
+  --c:var(--brand);position:relative;border-radius:20px;transform-style:preserve-3d;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c) 60%,color-mix(in srgb,var(--c) 75%,#000));
+  box-shadow:0 12px 0 color-mix(in srgb,var(--c) 62%,#000),0 40px 50px -10px color-mix(in srgb,var(--c) 50%,transparent);
+  animation:wave 3.6s ease-in-out infinite;animation-delay:calc(var(--i) * -.28s)
 }
-.orbit .core b{font-size:52px;font-weight:800;letter-spacing:-2px;line-height:1;color:var(--text)}
-.orbit .core span{font-size:13px;font-weight:600;color:var(--text-2);margin-top:4px}
-.orbit .orbiter{--c:var(--brand);--r:150px;--d:26s;position:absolute;left:50%;top:50%;width:0;height:0;z-index:3;animation:spin var(--d) linear infinite;animation-delay:var(--delay,0s)}
-.orbit .orbiter.ccw{--r:117px;--d:20s;animation-direction:reverse}
-.orbit .arm{position:absolute;left:0;top:0;transform:translateX(var(--r))}
-.orbit .sat{
-  position:absolute;left:-22px;top:-22px;width:44px;height:44px;border-radius:14px;background:var(--surface-solid);display:grid;place-items:center;color:var(--c);
-  box-shadow:var(--shadow-md),0 0 0 4px color-mix(in srgb,var(--c) 12%,transparent);animation:spin var(--d) linear infinite reverse;animation-delay:var(--delay,0s)
+.iso .tile::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.35),transparent 60%);transform:translateZ(1px)}
+.iso .tile svg{width:40px;height:40px;transform:translateZ(2px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
+.iso .tile .hi{font-family:'Noto Sans Devanagari',var(--font);font-size:40px;font-weight:700;line-height:1;transform:translateZ(2px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
+.iso-badge{
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:10px 20px 10px 14px;border-radius:999px;
+  background:rgba(255,255,255,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow-lg);
+  animation:badge 4s ease-in-out infinite
 }
-.orbit .orbiter.ccw .sat{animation-direction:normal}
-.orbit .sat svg{width:22px;height:22px}
-.orbit:hover .orbiter,.orbit:hover .sat,.orbit:hover .sweep{animation-play-state:paused}
-.orbit .tag{position:absolute;font-size:10px;font-weight:800;letter-spacing:2.5px;color:var(--text-3);z-index:2;background:var(--bg);padding:0 8px}
-.orbit .tag.t{top:-6px;left:50%;transform:translateX(-50%)}
-.orbit .tag.b{bottom:-6px;left:50%;transform:translateX(-50%)}
+.iso-badge b{font-size:32px;font-weight:800;letter-spacing:-1.5px;line-height:1;background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.iso-badge span{font-size:13px;font-weight:700;color:var(--text-2);white-space:nowrap}
+@keyframes wave{0%,100%{transform:translateZ(0)}50%{transform:translateZ(34px)}}
+@keyframes badge{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes pulse{0%{transform:scale(.92);opacity:.55}100%{transform:scale(1.55);opacity:0}}
-@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035);box-shadow:var(--shadow-lg),inset 0 0 0 14px var(--brand-soft),0 0 60px var(--brand-soft-2)}}
 
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:30px 0 16px}
 .section-head h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.6px;display:flex;align-items:center;gap:10px}
@@ -337,7 +330,7 @@ a{color:inherit;text-decoration:none}
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width:1180px){.hero{grid-template-columns:1fr}.orbit{display:none}}
+@media (max-width:1180px){.hero{grid-template-columns:1fr}.iso{display:none}}
 @media (max-width:960px){
   .app{grid-template-columns:1fr}
   .sidebar{position:fixed;left:0;top:0;width:min(320px,86vw);transform:translateX(-105%);transition:transform .35s var(--ease);box-shadow:var(--shadow-lg)}
@@ -415,16 +408,9 @@ a{color:inherit;text-decoration:none}
               <div class="step alt2"><i style="--c:#11b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></i> Simulate</div>
             </div>
           </div>
-          <div class="orbit" aria-hidden="true">
-            <div class="sweep"></div>
-            <div class="ring"></div><div class="ring r2"></div>
-            <div class="pulse"></div><div class="pulse p2"></div>
-            <div class="core"><b id="statGames">0</b><span>Subject Simulations</span></div>
-            <div class="orbiter" style="--c:#10b981;--delay:0s"><div class="arm"><div class="sat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg></div></div></div>
-            <div class="orbiter" style="--c:#0ea5e9;--delay:-14s"><div class="arm"><div class="sat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7M14.5 16h-5"/></svg></div></div></div>
-            <div class="orbiter ccw" style="--c:#8b5cf6;--delay:-5s"><div class="arm"><div class="sat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div></div></div>
-            <div class="orbiter ccw" style="--c:#f0567d;--delay:-15s"><div class="arm"><div class="sat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div></div></div>
-            <div class="tag t">INTERACTIVE</div><div class="tag b">DISCOVERY</div>
+          <div class="iso" id="iso" aria-hidden="true">
+            <div class="iso-scene" id="isoScene"></div>
+            <div class="iso-badge"><b id="statGames">0</b><span>Subject Simulations</span></div>
           </div>
         </div>
         <div id="classSections"></div>
@@ -577,6 +563,17 @@ const app = $('#app');
 
 /* ---------- Greeting ---------- */
 (function(){ const h = new Date().getHours(); $('#greetText').textContent = h<12?'Good morning':h<17?'Good afternoon':'Good evening'; })();
+
+/* ---------- Isometric tile cloud ---------- */
+(function(){
+  const scene=$('#isoScene'); if(!scene) return;
+  const tiles=[['calc','#10b981'],['flask','#0ea5e9'],['robot','#8b5cf6'],['pencil','#f0567d'],['hindiA','#f59e0b'],['trophy','#3b82f6'],['globe','#f97316'],['leaf','#22c55e'],['code','#6366f1']];
+  scene.innerHTML=tiles.map((t,i)=>`<div class="tile" style="--c:${t[1]};--i:${i}">${ICONS[t[0]]}</div>`).join('');
+  const hero=scene.closest('.hero');
+  hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+    scene.style.transform=`rotateX(${55-y*12}deg) rotateZ(${-38+x*14}deg)`;});
+  hero.addEventListener('mouseleave',()=>{scene.style.transform='';});
+})();
 
 /* ---------- Count-up stat ---------- */
 (function(){ const el=$('#statGames'), n=GAMES.length, t0=performance.now();
