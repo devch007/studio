@@ -204,12 +204,13 @@ a{color:inherit;text-decoration:none}
 }
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 90% 0%,var(--brand-soft),transparent 70%)}
 .hero .greet{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.3px;display:flex;align-items:center;gap:8px}
-.hero h1{margin:8px 0 10px;font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-1.6px;line-height:1.05}
+.hero h1{margin:8px 0 18px;font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-1.6px;line-height:1.05}
 .hero h1 span{background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{margin:0 0 22px;font-size:16px;color:var(--text-2);max-width:520px}
+.hero p{margin:0 0 18px;font-size:16px;color:var(--text-2);max-width:520px}
 .hero .steps{display:flex;gap:10px;flex-wrap:wrap}
 .step{display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:999px;background:var(--surface-solid);border:1px solid var(--border);font-size:13.5px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow-sm)}
-.step i{width:26px;height:26px;border-radius:999px;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;background:var(--brand);color:#fff}
+.step i{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;font-style:normal;font-size:15px;background:var(--brand-soft)}
+.step-arrow{align-self:center;color:var(--text-3);font-weight:700}
 .step.alt i{background:var(--accent)}
 .step.alt2 i{background:#11b981}
 
@@ -243,35 +244,30 @@ a{color:inherit;text-decoration:none}
 .section-head p{margin:2px 0 0;font-size:13.5px;color:var(--text-3)}
 .section-head .meta{font-size:12.5px;font-weight:700;color:var(--text-3)}
 
-.class-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.class-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
 .class-card{
-  --c:var(--brand);position:relative;display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:var(--radius-lg);
+  --c:var(--brand);position:relative;display:flex;flex-direction:column;gap:0;padding:10px;border-radius:var(--radius-lg);
   background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);text-align:left;overflow:hidden;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease),background .3s;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
   animation:fade .6s var(--ease) both;animation-delay:calc(var(--i,0)*45ms)
 }
-.class-card::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 140px at 100% 0%,color-mix(in srgb,var(--c) 16%,transparent),transparent 70%);opacity:0;transition:opacity .3s}
-.class-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--c) 35%,transparent);background:var(--surface-hover)}
-.class-card:hover::before{opacity:1}
-.class-card .top{display:flex;align-items:center;justify-content:space-between}
-.class-card .ico{
-  width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-size:30px;
-  background:linear-gradient(145deg,color-mix(in srgb,var(--c) 22%,#fff),color-mix(in srgb,var(--c) 42%,#fff));
-  box-shadow:0 10px 24px color-mix(in srgb,var(--c) 30%,transparent),inset 0 -3px 0 color-mix(in srgb,var(--c) 30%,transparent);
-  transition:transform .35s var(--ease)
+.class-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--c) 35%,transparent)}
+.class-card .tile{
+  position:relative;height:150px;border-radius:18px;display:grid;place-items:center;overflow:hidden;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--c) 18%,#fff),color-mix(in srgb,var(--c) 48%,#fff));
 }
-:root[data-theme="dark"] .class-card .ico{background:linear-gradient(145deg,color-mix(in srgb,var(--c) 32%,#1a1c3a),color-mix(in srgb,var(--c) 58%,#1a1c3a))}
-.class-card:hover .ico{transform:scale(1.08) rotate(-5deg)}
-.class-card .pill{font-size:11px;font-weight:800;padding:6px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);letter-spacing:.4px}
-:root[data-theme="dark"] .class-card .pill{color:color-mix(in srgb,var(--c) 60%,#fff)}
+:root[data-theme="dark"] .class-card .tile{background:linear-gradient(150deg,color-mix(in srgb,var(--c) 28%,#1a1c3a),color-mix(in srgb,var(--c) 62%,#1a1c3a))}
+.class-card .tile::before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.28);right:-60px;top:-70px}
+.class-card .tile::after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.2);left:-40px;bottom:-50px}
+.class-card .ico{font-size:72px;line-height:1;filter:drop-shadow(0 10px 14px color-mix(in srgb,var(--c) 45%,transparent));transition:transform .4s var(--ease);position:relative;z-index:1}
+.class-card:hover .ico{transform:scale(1.15) rotate(-8deg)}
+.class-card .pill{position:absolute;top:10px;right:10px;z-index:1;font-size:11px;font-weight:800;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--c)}
+:root[data-theme="dark"] .class-card .pill{background:rgba(0,0,0,.35);color:#fff}
+.class-card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 8px 6px}
 .class-card h3{margin:0;font-size:20px;font-weight:800;letter-spacing:-.5px}
-.class-card .sub{font-size:13px;color:var(--text-2);margin-top:-8px}
-.class-card .subjects{display:flex;gap:6px;flex-wrap:wrap}
-.class-card .subjects span{font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2)}
-.class-card .go{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;font-size:13.5px;font-weight:700;color:var(--c)}
-:root[data-theme="dark"] .class-card .go{color:color-mix(in srgb,var(--c) 60%,#fff)}
-.class-card .go .arrow{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:var(--surface-solid);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease)}
-.class-card:hover .go .arrow{transform:translateX(5px);background:var(--c);color:#fff}
+.class-card .sub{font-size:12.5px;color:var(--text-3)}
+.class-card .arrow{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:var(--brand-soft);color:var(--c);transition:all .3s var(--ease);flex:none}
+.class-card:hover .arrow{background:var(--c);color:#fff;transform:translateX(4px)}
 
 /* ============================================================
    VIEW 2 — CLASS DETAIL / SUBJECT GAMES
@@ -303,44 +299,45 @@ a{color:inherit;text-decoration:none}
 .chip.on .sw{opacity:1;box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 25%,transparent)}
 .chip.on .n{background:var(--c);color:#fff}
 
-.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
 .game{
-  --c:#5b5bd6;position:relative;display:grid;grid-template-columns:84px 1fr;gap:18px;padding:22px;border-radius:var(--radius-lg);
+  --c:#5b5bd6;position:relative;display:flex;flex-direction:column;padding:10px;border-radius:var(--radius-lg);
   background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s,background .3s;animation:fade .55s var(--ease) both;animation-delay:calc(var(--i,0)*40ms)
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;animation:fade .55s var(--ease) both;animation-delay:calc(var(--i,0)*40ms)
 }
-.game::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(280px 160px at 0% 100%,color-mix(in srgb,var(--c) 14%,transparent),transparent 70%);opacity:0;transition:opacity .3s}
-.game:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--c) 35%,transparent);background:var(--surface-hover)}
-.game:hover::after{opacity:1}
+.game:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--c) 35%,transparent)}
+.game .tile{
+  position:relative;height:170px;border-radius:18px;display:grid;place-items:center;overflow:hidden;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 72%,#000));
+}
+.game .tile::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.14);right:-80px;top:-100px}
+.game .tile::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(0,0,0,.08);left:-50px;bottom:-70px}
 .game .ico{
-  width:84px;height:84px;border-radius:24px;display:grid;place-items:center;color:#fff;
-  background:linear-gradient(150deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 75%,#000));
-  box-shadow:0 14px 28px color-mix(in srgb,var(--c) 45%,transparent),inset 0 2px 0 rgba(255,255,255,.35),inset 0 -4px 0 rgba(0,0,0,.14);
+  position:relative;z-index:1;width:92px;height:92px;border-radius:28px;display:grid;place-items:center;color:#fff;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(6px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 14px 28px rgba(0,0,0,.18);
   transition:transform .35s var(--ease)
 }
-.game:hover .ico{transform:scale(1.06) rotate(-4deg)}
-.game .ico svg{width:40px;height:40px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
-.game .ico .hi{font-family:'Noto Sans Devanagari',var(--font);font-size:40px;font-weight:700;line-height:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
-.game .body{display:flex;flex-direction:column;min-width:0}
-.game .cat{font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;gap:8px}
-.game .cat::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
-.game h3{margin:5px 0 4px;font-size:22px;font-weight:800;letter-spacing:-.5px;line-height:1.15}
+.game:hover .ico{transform:scale(1.1) rotate(-5deg)}
+.game .ico svg{width:50px;height:50px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
+.game .ico .hi{font-family:'Noto Sans Devanagari',var(--font);font-size:50px;font-weight:700;line-height:1;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
+.game .cat{position:absolute;z-index:1;left:12px;top:12px;font-size:10.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(6px)}
+.game .body{display:flex;flex-direction:column;padding:14px 8px 6px;min-width:0}
+.game h3{margin:0 0 2px;font-size:19px;font-weight:800;letter-spacing:-.4px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .game h3.hi{font-family:'Noto Sans Devanagari',var(--font);font-weight:700}
-.game p{margin:0;font-size:13.5px;color:var(--text-2);line-height:1.45}
-.game .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px}
-.game .tags{display:flex;gap:6px;flex-wrap:wrap}
-.game .tags span{font-size:11px;font-weight:700;padding:4px 8px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-3);display:flex;align-items:center;gap:4px}
+.game p{margin:0;font-size:12.5px;color:var(--text-3);line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.game .foot{display:flex;align-items:center;margin-top:12px}
 .play{
-  display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:12px;font-size:13.5px;font-weight:800;
-  background:var(--surface-solid);color:var(--text);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all .25s var(--ease);flex:none
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;width:100%;border-radius:13px;font-size:13.5px;font-weight:800;
+  background:var(--brand-soft);color:var(--c);transition:all .25s var(--ease)
 }
+:root[data-theme="dark"] .play{color:#fff}
 .play svg{transition:transform .25s var(--ease)}
-.play:hover,.game:hover .play{background:var(--c);color:#fff;border-color:transparent;box-shadow:0 8px 20px color-mix(in srgb,var(--c) 40%,transparent)}
+.play:hover,.game:hover .play{background:var(--c);color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--c) 40%,transparent)}
 .play:hover svg,.game:hover .play svg{transform:translateX(3px)}
-.game .fav{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--text-3);opacity:0;transition:all .25s var(--ease)}
+.game .fav{position:absolute;z-index:2;top:18px;right:18px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.15);backdrop-filter:blur(6px);opacity:0;transition:all .25s var(--ease)}
 .game:hover .fav,.game .fav.on{opacity:1}
-.game .fav:hover{background:var(--surface-solid);color:var(--accent)}
-.game .fav.on{color:var(--accent)}
+.game .fav:hover{background:rgba(255,255,255,.9);color:var(--accent)}
+.game .fav.on{color:#fff;background:var(--accent)}
 
 .empty{display:grid;place-items:center;text-align:center;padding:70px 20px;border-radius:var(--radius-lg);border:1.5px dashed var(--border-strong);color:var(--text-2)}
 .empty .big{font-size:46px;margin-bottom:10px}
@@ -380,18 +377,14 @@ footer.foot b{color:var(--text-2)}
   .hero{padding:28px 22px;border-radius:26px}
   .detail-head{grid-template-columns:auto 1fr}
   .switcher{grid-column:1/-1}
-  .games{grid-template-columns:1fr}
-  .class-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-  .class-card{padding:16px}
-  .class-card .ico{width:50px;height:50px;font-size:24px}
-  .class-card .subjects{display:none}
+  .games{grid-template-columns:repeat(2,1fr);gap:12px}
+  .class-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .class-card .tile{height:120px}.class-card .ico{font-size:56px}
   footer.foot{flex-direction:column;align-items:flex-start;padding:22px 16px}
 }
 @media (max-width:520px){
-  .game{grid-template-columns:64px 1fr;gap:14px;padding:16px}
-  .game .ico{width:64px;height:64px;border-radius:18px}.game .ico svg{width:30px;height:30px}.game .ico .hi{font-size:30px}
-  .game h3{font-size:18px}
-  .game .foot{flex-direction:column;align-items:stretch}.play{justify-content:center}
+  .game .tile{height:130px}.game .ico{width:70px;height:70px;border-radius:20px}.game .ico svg{width:36px;height:36px}.game .ico .hi{font-size:36px}
+  .game h3{font-size:16px}.game p{display:none}.game .cat{display:none}
   .hero h1{letter-spacing:-1px}
   .filters{width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}
 }
@@ -447,12 +440,11 @@ footer.foot b{color:var(--text-2)}
         <div class="hero">
           <div>
             <div class="greet"><span id="greetText">Good afternoon</span> 👋</div>
-            <h1>Hi, Explorer.<br>Pick your <span>class</span> to begin</h1>
-            <p>Every class has its own studio of subject games — from pre‑writing and rhymes in Nursery to AI, coding and algebra in middle school.</p>
+            <h1>Pick your <span>class</span></h1>
             <div class="steps">
-              <div class="step"><i>1</i> Choose your class</div>
-              <div class="step alt"><i>2</i> Pick a subject</div>
-              <div class="step alt2"><i>3</i> Play &amp; learn</div>
+              <div class="step"><i>🎓</i> Class</div><span class="step-arrow">→</span>
+              <div class="step alt"><i>📚</i> Subject</div><span class="step-arrow">→</span>
+              <div class="step alt2"><i>🎮</i> Play</div>
             </div>
           </div>
           <div class="orbit" aria-hidden="true">
@@ -492,7 +484,6 @@ footer.foot b{color:var(--text-2)}
 
     <footer class="foot">
       <div>Powered by <b>Edubull Technologies</b> · Aligned with NEP 2020 &amp; NCF 2023</div>
-      <div>Tip: press <b>/</b> to search · <b>Esc</b> to go back</div>
     </footer>
   </div>
 </div>
@@ -641,15 +632,12 @@ function renderHome(){
   let i=0, html='';
   for(const st of STAGES){
     const cls = CLASSES.filter(c=>c.stage===st.id);
-    html += `<div class="section-head"><div><h2 style="--c:${st.color}"><span class="dot"></span>${esc(st.name)}</h2><p>${esc(st.blurb)}</p></div><div class="meta">${cls.length} classes</div></div><div class="class-grid">`;
+    html += `<div class="section-head"><h2 style="--c:${st.color}"><span class="dot"></span>${esc(st.name)}</h2><div class="meta">${cls.length} classes</div></div><div class="class-grid">`;
     for(const c of cls){
       const gs = gamesFor(c.id);
-      const subs = [...new Set(gs.map(g=>SUBJECTS[g.subject].name))];
       html += `<button class="class-card" style="--c:${c.color};--i:${i++}" data-class="${c.id}" aria-label="Open ${esc(c.name)} games">
-        <div class="top"><div class="ico">${c.emoji}</div><span class="pill">${gs.length} games</span></div>
-        <h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div>
-        <div class="subjects">${subs.slice(0,4).map(s=>`<span>${esc(s)}</span>`).join('')}${subs.length>4?`<span>+${subs.length-4}</span>`:''}</div>
-        <div class="go"><span>Enter studio</span><span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="tile"><span class="ico">${c.emoji}</span><span class="pill">${gs.length} games</span></div>
+        <div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </button>`;
     }
     html += `</div>`;
@@ -664,13 +652,11 @@ function gameCard(g, i){
   const fav = state.favs.has(g.id);
   return `<article class="game" style="--c:${s.color};--i:${i}">
     <button class="fav ${fav?'on':''}" data-fav="${g.id}" aria-label="${fav?'Remove from':'Add to'} favourites" aria-pressed="${fav}"><svg width="18" height="18" viewBox="0 0 24 24" fill="${fav?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
-    <div class="ico">${ICONS[g.icon]||ICONS.star}</div>
+    <div class="tile"><div class="ico">${ICONS[g.icon]||ICONS.star}</div><span class="cat">${esc(s.name)}</span></div>
     <div class="body">
-      <div class="cat">${esc(s.name)}</div>
       <h3 class="${g.titleHi?'hi':''}">${esc(g.title)}</h3>
       <p>${esc(g.desc)}</p>
       <div class="foot">
-        <div class="tags">${g.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
         <a class="play" href="${esc(g.url)}" aria-label="Play ${esc(g.title)}">Play <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -683,7 +669,7 @@ function renderClass(){
   $('#dStage').textContent = st.name;
   $('#dEmoji').textContent = c.emoji;
   $('#dName').textContent = c.name;
-  $('#dSub').textContent = `${c.sub} · ${all.length} subject game${all.length===1?'':'s'} · choose a subject to begin`;
+  $('#dSub').textContent = `${c.sub} · ${all.length} games`;
 
   const idx = CLASSES.indexOf(c), prev = CLASSES[idx-1], next = CLASSES[idx+1];
   $('#prevClass').disabled = !prev; $('#nextClass').disabled = !next;
@@ -694,8 +680,8 @@ function renderClass(){
   // subject chips
   const subs = [...new Set(all.map(g=>g.subject))];
   if(state.subject!=='all' && !subs.includes(state.subject)) state.subject='all';
-  const chip = (id,name,color,n) => `<button class="chip ${state.subject===id?'on':''}" role="tab" aria-selected="${state.subject===id}" data-sub="${id}" style="--c:${color}"><span class="sw"></span>${esc(name)}<span class="n">${n}</span></button>`;
-  $('#filters').innerHTML = chip('all','All subjects','var(--brand)',all.length) + subs.map(s=>chip(s,SUBJECTS[s].name,SUBJECTS[s].color,all.filter(g=>g.subject===s).length)).join('');
+  const chip = (id,name,color,n) => `<button class="chip ${state.subject===id?'on':''}" role="tab" aria-selected="${state.subject===id}" data-sub="${id}" style="--c:${color}"><span class="sw"></span>${esc(name)}</button>`;
+  $('#filters').innerHTML = chip('all','All','var(--brand)',all.length) + subs.map(s=>chip(s,SUBJECTS[s].name,SUBJECTS[s].color,all.filter(g=>g.subject===s).length)).join('');
   $('#filters').onclick = e => { const b=e.target.closest('[data-sub]'); if(!b) return; state.subject=b.dataset.sub; renderClass(); };
 
   const list = state.subject==='all' ? all : all.filter(g=>g.subject===state.subject);
@@ -719,7 +705,7 @@ function renderSearch(){
   let html='', total=games.length;
   if(matchCls.length){
     html += `<div class="result-group"><div class="gh"><span class="em">🎓</span>Classes <span class="n">${matchCls.length}</span></div><div class="class-grid">` +
-      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="top"><div class="ico">${c.emoji}</div><span class="pill">${gs.length} games</span></div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div><div class="go"><span>Enter studio</span><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
+      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${c.emoji}</span><span class="pill">${gs.length} games</span></div><div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
   }
   // group games by class stage for clarity
   for(const st of STAGES){
