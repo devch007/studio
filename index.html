@@ -176,42 +176,42 @@ a{color:inherit;text-decoration:none}
    VIEW 1 — CHOOSE CLASS
    ============================================================ */
 .hero{
-  position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center;
-  padding:40px 44px;border-radius:var(--radius-xl);overflow:hidden;
-  background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-lg);backdrop-filter:blur(24px);margin-bottom:34px
+  position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center;
+  padding:22px 40px;border-radius:var(--radius-xl);overflow:hidden;min-height:0;
+  background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-lg);backdrop-filter:blur(24px);margin-bottom:28px
 }
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 90% 0%,var(--brand-soft),transparent 70%)}
 .hero .greet{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.3px;display:flex;align-items:center;gap:8px}
-.hero h1{margin:8px 0 18px;font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-1.6px;line-height:1.05}
+.hero h1{margin:4px 0 14px;font-size:clamp(30px,3.2vw,42px);font-weight:800;letter-spacing:-1.6px;line-height:1.05}
 .hero h1 span{background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{margin:0 0 18px;font-size:16px;color:var(--text-2);max-width:520px}
-.hero .steps{display:flex;gap:10px;flex-wrap:wrap}
-.step{display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:999px;background:var(--surface-solid);border:1px solid var(--border);font-size:13.5px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow-sm)}
+.hero .steps{display:flex;gap:8px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 7px;border-radius:999px;background:var(--surface-solid);border:1px solid var(--border);font-size:13.5px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow-sm)}
 .step i{--c:var(--brand);width:30px;height:30px;border-radius:999px;display:grid;place-items:center;font-style:normal;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
 .step i svg{width:16px;height:16px}
 .step-arrow{align-self:center;color:var(--text-3);font-weight:700}
 
 /* Isometric tile cloud */
-.iso{position:relative;width:100%;max-width:420px;aspect-ratio:1.1;margin:0 auto;display:grid;place-items:center;perspective:1100px;padding-bottom:56px}
-.iso-scene{position:relative;width:270px;height:270px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;transform-style:preserve-3d;
+.iso{position:relative;width:100%;max-width:360px;height:230px;margin:0 auto;display:grid;place-items:center;perspective:900px;padding-bottom:30px}
+.iso-scene{position:relative;width:180px;height:180px;display:grid;grid-template-columns:repeat(3,1fr);gap:11px;transform-style:preserve-3d;
   transform:rotateX(55deg) rotateZ(-38deg) translateZ(calc(var(--ty,0) * 1px));transition:transform .5s var(--ease)}
 .iso .tile{
-  --c:var(--brand);position:relative;border-radius:20px;transform-style:preserve-3d;display:grid;place-items:center;color:#fff;
+  --c:var(--brand);position:relative;border-radius:14px;transform-style:preserve-3d;display:grid;place-items:center;color:#fff;
   background:linear-gradient(150deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c) 60%,color-mix(in srgb,var(--c) 75%,#000));
-  box-shadow:0 12px 0 color-mix(in srgb,var(--c) 62%,#000),0 40px 50px -10px color-mix(in srgb,var(--c) 50%,transparent);
+  box-shadow:0 8px 0 color-mix(in srgb,var(--c) 62%,#000),0 28px 36px -8px color-mix(in srgb,var(--c) 50%,transparent);
   animation:wave 3.6s ease-in-out infinite;animation-delay:calc(var(--i) * -.28s)
 }
 .iso .tile::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.35),transparent 60%);transform:translateZ(1px)}
-.iso .tile svg{width:40px;height:40px;transform:translateZ(2px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
-.iso .tile .hi{font-family:'Noto Sans Devanagari',var(--font);font-size:40px;font-weight:700;line-height:1;transform:translateZ(2px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
+.iso .tile svg{width:26px;height:26px;transform:translateZ(2px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
+.iso .tile .hi{font-family:'Noto Sans Devanagari',var(--font);font-size:26px;font-weight:700;line-height:1;transform:translateZ(2px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
 .iso-badge{
-  position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:10px 20px 10px 14px;border-radius:999px;
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 16px 7px 12px;border-radius:999px;
   background:rgba(255,255,255,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow-lg);
   animation:badge 4s ease-in-out infinite
 }
-.iso-badge b{font-size:32px;font-weight:800;letter-spacing:-1.5px;line-height:1;background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
-.iso-badge span{font-size:13px;font-weight:700;color:var(--text-2);white-space:nowrap}
-@keyframes wave{0%,100%{transform:translateZ(0)}50%{transform:translateZ(34px)}}
+.iso-badge b{font-size:26px;font-weight:800;letter-spacing:-1.5px;line-height:1;background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.iso-badge span{font-size:12.5px;font-weight:700;color:var(--text-2);white-space:nowrap}
+@keyframes wave{0%,100%{transform:translateZ(0)}50%{transform:translateZ(22px)}}
 @keyframes badge{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 
