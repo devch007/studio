@@ -609,7 +609,7 @@ function renderHome(){
       const gs = gamesFor(c.id);
       html += `<button class="class-card" style="--c:${c.color};--i:${i++}" data-class="${c.id}" aria-label="Open ${esc(c.name)} simulations">
         <div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} simulations</span></div>
-        <div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="row"><div><h3>${esc(c.name)}</h3></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </button>`;
     }
     html += `</div>`;
@@ -641,7 +641,7 @@ function renderClass(){
   $('#dStage').textContent = st.name;
   $('#dEmoji').innerHTML = ci(c.icon); $('#dEmoji').style.setProperty('--c', c.color);
   $('#dName').textContent = c.name;
-  $('#dSub').textContent = `${c.sub} · ${all.length} simulations`;
+  $('#dSub').textContent = `${all.length} simulations`;
 
 
   // subject chips
@@ -672,7 +672,7 @@ function renderSearch(){
   let html='', total=games.length;
   if(matchCls.length){
     html += `<div class="result-group"><div class="gh"><span class="em">${ci('cap')}</span>Classes <span class="n">${matchCls.length}</span></div><div class="class-grid">` +
-      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} simulations</span></div><div class="row"><div><h3>${esc(c.name)}</h3><div class="sub">${esc(c.sub)}</div></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
+      matchCls.map((c,i)=>{ const gs=gamesFor(c.id); return `<button class="class-card" style="--c:${c.color};--i:${i}" data-class="${c.id}"><div class="tile"><span class="ico">${ci(c.icon,1.75)}</span><span class="pill">${gs.length} simulations</span></div><div class="row"><div><h3>${esc(c.name)}</h3></div><span class="arrow">→</span></div></button>`; }).join('') + `</div></div>`;
   }
   // group games by class stage for clarity
   for(const st of STAGES){
