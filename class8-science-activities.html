@@ -24,13 +24,13 @@
 html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--font);color:var(--text);background:var(--bg);min-height:100vh;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(900px 500px at 10% 0%,#3b2a8f 0%,transparent 60%),
-  radial-gradient(800px 500px at 100% 20%,#1e5aa8 0%,transparent 60%),
-  radial-gradient(900px 600px at 50% 110%,#5b2a8f 0%,transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg))}
+  radial-gradient(900px 500px at 10% 0%,rgba(139,92,246,.10) 0%,transparent 60%),
+  radial-gradient(800px 500px at 100% 20%,rgba(47,139,255,.08) 0%,transparent 60%),
+  radial-gradient(900px 600px at 50% 110%,rgba(139,92,246,.08) 0%,transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg))}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:
   radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 40% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 60% 20%,#fff,transparent),
   radial-gradient(2px 2px at 80% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 90%,#fff,transparent),radial-gradient(1.5px 1.5px at 90% 90%,#fff,transparent),
-  radial-gradient(1.5px 1.5px at 70% 40%,#fff,transparent),radial-gradient(2px 2px at 10% 60%,#fff,transparent);background-size:600px 600px;animation:twinkle 6s ease-in-out infinite alternate}
+  radial-gradient(1.5px 1.5px at 70% 40%,#fff,transparent),radial-gradient(2px 2px at 10% 60%,#fff,transparent);background-size:600px 600px;opacity:0}
 @keyframes twinkle{from{opacity:.25}to{opacity:.6}}
 button{font-family:inherit;color:inherit;cursor:pointer;border:0;background:none}
 a{color:inherit;text-decoration:none}
@@ -169,7 +169,6 @@ footer{padding:24px;text-align:center;color:var(--text-3);font-size:12.5px}foote
 </head>
 <body>
 <header class="hud">
-  <a class="logo" href="https://edubull.com"><span class="mark">eb</span><span><small>Edubull</small><span>Science Activities</span></span></a>
   <div class="spacer"></div>
   <label class="search" id="searchBox"><span class="ms">search</span><input id="searchInput" type="search" placeholder="Search units or topics…" autocomplete="off" aria-label="Search"><button class="clear" id="searchClear" type="button" aria-label="Clear search"><span class="ms" style="--is:18px">close</span></button></label>
 </header>
