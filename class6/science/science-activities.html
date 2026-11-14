@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 6 Science Activities · Edubull</title>
+<meta name="description" content="Class 6 Science Activities by Edubull — 12 units of hands-on activity videos.">
+<meta name="theme-color" content="#eef0fb">
+<meta name="color-scheme" content="light only">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237c3aed'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3Eeb%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..700,0..1,0&display=block" rel="stylesheet">
+<style>
+:root{
+  --font:'Plus Jakarta Sans',system-ui,sans-serif;--display:'Baloo 2',var(--font);
+  --bg:#eef0fb;--bg2:#f6f4ff;--panel:rgba(255,255,255,.78);--panel-2:#fff;--line:rgba(91,91,214,.14);
+  --text:#141633;--text-2:#4a4d6b;--text-3:#80839c;--ink:#1a1442;
+  --gold:#ffc83d;--gold-2:#ff9f1c;--green:#34d399;--pink:#ff5c8a;--violet:#8b5cf6;--cyan:#22d3ee;
+  --ease:cubic-bezier(.2,.8,.2,1);--pop:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--bg);min-height:100vh;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(900px 500px at 10% 0%,rgba(139,92,246,.10) 0%,transparent 60%),
+  radial-gradient(800px 500px at 100% 20%,rgba(47,139,255,.08) 0%,transparent 60%),
+  radial-gradient(900px 600px at 50% 110%,rgba(139,92,246,.08) 0%,transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg))}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:
+  radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 40% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 60% 20%,#fff,transparent),
+  radial-gradient(2px 2px at 80% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 90%,#fff,transparent),radial-gradient(1.5px 1.5px at 90% 90%,#fff,transparent),
+  radial-gradient(1.5px 1.5px at 70% 40%,#fff,transparent),radial-gradient(2px 2px at 10% 60%,#fff,transparent);background-size:600px 600px;opacity:0}
+@keyframes twinkle{from{opacity:.25}to{opacity:.6}}
+button{font-family:inherit;color:inherit;cursor:pointer;border:0;background:none}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:14px}
+.ms{font-family:'Material Symbols Rounded';font-weight:500;font-size:var(--is,24px);line-height:1;display:inline-block;white-space:nowrap;-webkit-font-feature-settings:'liga';font-feature-settings:'liga';font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;user-select:none;vertical-align:middle}
+.ms.fill{font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24}
+
+/* ---------- HUD ---------- */
+.hud{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:12px 24px;background:linear-gradient(rgba(238,240,251,.95),rgba(238,240,251,.7) 80%,transparent);backdrop-filter:blur(10px)}
+.hud .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.3px}
+.hud .logo .mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;color:#fff;font-family:var(--font);font-size:14px;font-weight:800;background:linear-gradient(135deg,#5b5bd6,#f0567d);box-shadow:0 6px 18px rgba(91,91,214,.5)}
+.hud .logo small{display:block;font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--violet);line-height:1}
+.hud .spacer{flex:1}
+.hud .search{display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);box-shadow:0 2px 10px rgba(20,22,51,.05);width:min(300px,100%)}
+.hud .search .ms{--is:20px;color:var(--text-3)}
+.hud .search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:14px;color:var(--text);outline:none}
+.hud .search input::placeholder{color:var(--text-3)}
+.hud .search .clear{display:none;color:var(--text-3)}.hud .search.has .clear{display:grid}
+
+.wrap{max-width:1100px;margin:0 auto;padding:10px 24px 80px}
+.view{display:none;animation:fade .45s var(--ease)}.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ---------- Title ---------- */
+.title{text-align:center;margin:10px 0 26px}
+.title .k{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--violet);padding:7px 14px;border-radius:999px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3)}
+.title h1{margin:10px 0 4px;font-family:var(--display);font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-1px;line-height:1;text-shadow:none}
+.title h1 span{color:var(--violet)}
+.title p{margin:0;color:var(--text-2);font-size:14.5px}
+
+/* ---------- Level map ---------- */
+.map{position:relative;padding:10px 0}
+.map svg.path{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.map svg.path path{fill:none;stroke:rgba(91,91,214,.14);stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+.map svg.path path.done{stroke:url(#pathGrad);stroke-dasharray:1;stroke-dashoffset:0}
+.map svg.path path.dots{stroke:rgba(91,91,214,.6);stroke-width:4;stroke-dasharray:0 22;stroke-linecap:round}
+.levels{position:relative;display:grid;gap:34px}
+.level{--c:var(--violet);position:relative;display:flex;align-items:center;gap:22px;width:min(540px,100%);text-align:left;padding:14px 18px 14px 14px;border-radius:28px;background:var(--panel);border:1px solid var(--line);box-shadow:0 10px 30px rgba(40,44,110,.08);backdrop-filter:blur(10px);transition:transform .3s var(--pop),background .3s,border-color .3s;animation:fade .5s var(--ease) both;animation-delay:calc(var(--i)*60ms)}
+.level:nth-child(odd){justify-self:start;margin-left:4%}
+.level:nth-child(even){justify-self:end;margin-right:4%}
+.level:hover{transform:scale(1.03);background:var(--panel-2);border-color:color-mix(in srgb,var(--c) 45%,transparent);box-shadow:0 20px 50px rgba(40,44,110,.14)}
+.level .node{position:relative;flex:none;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;color:#fff;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--c) 55%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 70%,#000));box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 30%,transparent),0 14px 30px color-mix(in srgb,var(--c) 50%,transparent),inset 0 -6px 0 rgba(0,0,0,.22),inset 0 3px 0 rgba(255,255,255,.35)}
+.level .node .ms{--is:40px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
+.level .node .n{position:absolute;right:-6px;bottom:-6px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:15px;font-weight:800;background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.level.locked .node{background:radial-gradient(circle at 35% 30%,#d4d6e8,#b4b7cf 60%,#9496b3);box-shadow:0 0 0 6px rgba(91,91,214,.08),inset 0 -6px 0 rgba(0,0,0,.12)}
+.level.locked .node .ms{opacity:.8}
+.level .info{flex:1;min-width:0}
+.level .info .lv{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--c)}
+.level.locked .info .lv{color:var(--text-3)}
+.level h3{margin:2px 0 6px;font-family:var(--display);font-size:20px;font-weight:800;line-height:1.15;letter-spacing:-.2px}
+.level .tag{font-size:11.5px;font-weight:700;color:var(--text-2);align-self:center}
+.level .play{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--c) 40%,transparent);transition:transform .3s var(--pop)}
+.level .play .ms{--is:28px}
+.level:hover .play{transform:scale(1.1) rotate(-8deg)}
+.level.locked .play{background:#e4e6f3;color:var(--text-3);box-shadow:none}
+
+/* ---------- Level screen ---------- */
+.lvl-head{--c:var(--violet);position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:24px 26px;border-radius:30px;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 70%,#000),color-mix(in srgb,var(--c) 85%,#000) 60%,#1a1442);border:1px solid color-mix(in srgb,var(--c) 50%,transparent);box-shadow:0 30px 60px -20px color-mix(in srgb,var(--c) 70%,transparent);margin-bottom:26px}
+.lvl-head::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-220px;background:radial-gradient(circle,color-mix(in srgb,var(--c) 70%,#fff) 0%,transparent 65%);opacity:.5}
+.lvl-head .back{position:relative;color:#fff;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid var(--line);transition:all .25s var(--ease)}
+.lvl-head .back:hover{background:#fff;color:var(--ink);transform:translateX(-3px)}
+.lvl-head .back .ms{--is:24px}
+.lvl-head .lv{position:relative;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.lvl-head h1{position:relative;color:#fff;margin:4px 0 6px;font-family:var(--display);font-size:clamp(26px,3.4vw,40px);font-weight:800;line-height:1.05;letter-spacing:-.4px}
+.lvl-head .prog{position:relative;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:rgba(255,255,255,.85)}
+.lvl-head .big{position:relative;color:#fff;width:110px;height:110px;border-radius:32px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.lvl-head .big .ms{--is:60px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.4))}
+.lvl-nav{display:flex;justify-content:space-between;gap:8px;margin-bottom:18px}
+.lvl-nav button{display:flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-size:13px;font-weight:800;transition:all .2s}
+.lvl-nav button:hover:not(:disabled){background:var(--panel-2);color:var(--violet);box-shadow:0 6px 16px rgba(40,44,110,.1)}
+.lvl-nav button:disabled{opacity:.3;cursor:not-allowed}
+.lvl-nav .ms{--is:18px}
+
+.missions{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.mission{--c:var(--violet);position:relative;display:flex;flex-direction:column;border-radius:26px;overflow:hidden;background:var(--panel-2);border:1px solid var(--line);box-shadow:0 10px 30px rgba(40,44,110,.08);transition:transform .3s var(--pop),border-color .3s;animation:fade .45s var(--ease) both;animation-delay:calc(var(--i)*50ms)}
+.mission:hover{transform:translateY(-6px) scale(1.01);border-color:color-mix(in srgb,var(--c) 45%,transparent);box-shadow:0 20px 50px rgba(40,44,110,.14)}
+.mission .screen{position:relative;height:160px;display:grid;place-items:center;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 60%,#fff),var(--c) 50%,color-mix(in srgb,var(--c) 60%,#000));overflow:hidden}
+.mission .screen::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 12px,transparent 12px 24px)}
+.mission .screen .orb{z-index:1}
+.mission .screen .orb{position:relative;width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);box-shadow:inset 0 2px 0 rgba(255,255,255,.5),0 12px 26px rgba(0,0,0,.3);transition:transform .3s var(--pop)}
+.mission:hover .screen .orb{transform:scale(1.15)}
+.mission .screen .orb .ms{--is:44px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}
+.mission .screen .num{position:absolute;left:12px;top:12px;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(0,0,0,.3);color:#fff}
+.mission .body{display:flex;flex-direction:column;padding:16px 16px 14px}
+.mission h4{margin:0 0 10px;font-size:16px;font-weight:800;line-height:1.3;min-height:42px}
+.mission .row{display:flex;gap:8px;margin-top:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:44px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:800;background:#fff;border:1px solid var(--line);color:var(--text);transition:all .25s var(--pop);white-space:nowrap}
+.btn .ms{--is:20px}
+.btn.go{flex:1;background:var(--c,var(--violet));color:#fff;border-color:transparent;box-shadow:0 10px 24px color-mix(in srgb,var(--c,var(--violet)) 40%,transparent)}
+.btn.go:hover{transform:translateY(-2px) scale(1.02);filter:brightness(1.08)}
+.btn.icon{width:44px;padding:0}
+.btn.icon:hover{background:var(--c,var(--violet));color:#fff;border-color:transparent}
+.mission.locked .screen{background:linear-gradient(160deg,#d7d9ea,#bfc2d8 55%,#a5a8c3)}
+.mission.locked .btn.go{background:#e9eaf5;color:var(--text-3);box-shadow:none;cursor:default}
+.mission.locked .btn.go:hover{transform:none}
+
+/* ---------- Search ---------- */
+.group{margin-bottom:22px}
+.group .gh{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-family:var(--display);font-size:18px;font-weight:800}
+.group .gh .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;color:#fff;background:var(--c,var(--violet))}
+.empty{text-align:center;padding:60px 20px;border-radius:26px;border:1.5px dashed var(--line);color:var(--text-2)}
+.empty .ms{--is:56px;color:var(--violet);display:block;margin:0 auto 8px}
+.empty b{display:block;font-size:18px;color:var(--text)}
+
+/* ---------- Player ---------- */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(20,22,51,.6);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.open{opacity:1;pointer-events:auto}
+.modal .box{--c:var(--violet);width:min(1000px,100%);border-radius:28px;overflow:hidden;background:#fff;border:1px solid color-mix(in srgb,var(--c) 50%,transparent);box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 8px color-mix(in srgb,var(--c) 18%,transparent);transform:translateY(16px) scale(.97);transition:transform .35s var(--pop)}
+.modal.open .box{transform:none}
+.modal .head{display:flex;align-items:center;gap:12px;padding:14px 16px 14px 18px}
+.modal .head .tag{font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#fff;padding:5px 10px;border-radius:999px;background:var(--c,var(--violet));white-space:nowrap}
+.modal .head h3{margin:0;font-size:16px;font-weight:800;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.modal .head .btn{height:38px}
+.modal video{display:block;width:100%;aspect-ratio:16/9;background:#000;outline:none}
+.modal .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;font-size:13px;color:var(--text-2);flex-wrap:wrap}
+.modal .foot .nav{display:flex;gap:8px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);opacity:0;z-index:60;display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;font-size:14px;font-weight:800;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:all .35s var(--pop);pointer-events:none}
+.toast .ms{--is:20px;color:var(--gold)}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+footer{padding:24px;text-align:center;color:var(--text-3);font-size:12.5px}footer b{color:var(--text-2)}
+
+@media (max-width:760px){
+  .hud{padding:10px 14px;gap:8px;flex-wrap:wrap}.hud .search{width:100%;order:9}.hud .logo span>span{display:none}
+  .wrap{padding:6px 14px 60px}
+  .level{width:100%;margin:0!important;gap:14px;padding:12px}.level .node{width:70px;height:70px}.level .node .ms{--is:30px}.level h3{font-size:17px}.level .tag{display:none}
+  .lvl-head{grid-template-columns:auto 1fr;padding:18px}.lvl-head .big{display:none}  .missions{grid-template-columns:1fr 1fr;gap:12px}.mission .screen{height:120px}.mission .screen .orb{width:60px;height:60px}.mission .screen .orb .ms{--is:32px}.mission h4{font-size:14px;min-height:0}  .modal{padding:8px}
+}
+@media (max-width:440px){.missions{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hud">
+  <div class="spacer"></div>
+  <label class="search" id="searchBox"><span class="ms">search</span><input id="searchInput" type="search" placeholder="Search units or topics…" autocomplete="off" aria-label="Search"><button class="clear" id="searchClear" type="button" aria-label="Clear search"><span class="ms" style="--is:18px">close</span></button></label>
+</header>
+
+<main class="wrap">
+  <!-- ===== Level map ===== -->
+  <section class="view active" id="viewHome" aria-label="Units">
+    <div class="title">
+      <span class="k"><span class="ms" style="--is:16px">science</span> Class 6 · Science</span>
+      <h1>Science <span>Activities</span></h1>
+      <p>Step 1: pick a unit. Step 2: pick a topic and watch its video.</p>
+    </div>
+    <div class="map" id="map">
+      <svg class="path" aria-hidden="true"><defs><linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc83d"/><stop offset="1" stop-color="#ff5c8a"/></linearGradient></defs><path id="pathBg"/><path id="pathDots" class="dots"/></svg>
+      <div class="levels" id="levels"></div>
+    </div>
+  </section>
+
+  <!-- ===== Level ===== -->
+  <section class="view" id="viewLevel" aria-label="Unit topics">
+    <div class="lvl-head" id="lvlHead">
+      <button class="back" id="backBtn" aria-label="Back to units"><span class="ms">arrow_back</span></button>
+      <div><div class="lv" id="lLv"></div><h1 id="lName"></h1><div class="prog"><span class="ms" style="--is:18px">experiment</span><span id="lProg"></span></div></div>
+      <div class="big"><span class="ms fill" id="lIcon"></span></div>
+    </div>
+    <div class="lvl-nav"><button id="prevLvl"><span class="ms">chevron_left</span><span id="prevLbl">Previous</span></button><button id="nextLvl"><span id="nextLbl">Next</span><span class="ms">chevron_right</span></button></div>
+    <div class="missions" id="missions"></div>
+  </section>
+
+  <!-- ===== Search ===== -->
+  <section class="view" id="viewSearch" aria-label="Search results">
+    <div class="title"><h1 style="font-size:32px">Search</h1><p id="searchMeta"></p></div>
+    <div id="searchResults"></div>
+  </section>
+</main>
+<footer>Powered by <b>Edubull Technologies</b> · Class 6 Science Activities</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box" id="mBox">
+    <div class="head"><span class="tag" id="mTag"></span><h3 id="mTitle"></h3>
+      <a class="btn icon" id="mOpen" href="#" target="_blank" rel="noopener" title="Open in new tab"><span class="ms">open_in_new</span></a>
+      <button class="btn icon" id="mClose" aria-label="Close"><span class="ms">close</span></button></div>
+    <video id="mVideo" controls playsinline preload="auto" controlsList="nodownload"></video>
+    <div class="foot"><span id="mSub"></span><div class="nav"><button class="btn" id="mPrev"><span class="ms">skip_previous</span>Previous</button><button class="btn" id="mNext">Next<span class="ms">skip_next</span></button></div></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATA — Class 6 Science activities. Edit here to add or change links.
+   `file` is the video filename under BASE. Leave empty if not ready.
+   ===================================================================== */
+const BASE = 'https://edubullmedia01.blob.core.windows.net/edubull/activity/class6-science/';
+const UNITS = [
+  { n:1,  name:'The Wonderful World of Science', icon:'travel_explore', color:'#5b5bd6', topics:[
+      { t:'Observing Plant Growth: The Seed Sprout Test', file:'6Sci-Ch1-Act1.mp4' },
+      { t:'Testing a Hypothesis: The Plant Light Experiment', file:'6Sci-Ch1-Act2.mp4' } ] },
+  { n:2,  name:'Diversity in the Living World', icon:'pets', color:'#10b981', topics:[
+      { t:'Observing Animal Adaptations: The Bird Beak Test', file:'6Sci-Ch2-Act1.mp4' },
+      { t:'Plant Adaptations: The Leaf Observation Test', file:'' } ] },
+  { n:3,  name:'Mindful Eating: A Path to a Healthy Body', icon:'restaurant', color:'#f0567d', topics:[
+      { t:'The Sugar in Your Drink: A Sweet Test', file:'' },
+      { t:'Testing for Starch: The Iodine Test', file:'' },
+      { t:'Identifying Nutrient-Rich Foods: The Food Label Detective', file:'' },
+      { t:'My Meal Plate', file:'' } ] },
+  { n:4,  name:'Exploring Magnets', icon:'explore', color:'#f59e0b', topics:[
+      { t:'Attraction Test: Magnetic or Non-Magnetic?', file:'' },
+      { t:'Attraction and Repulsion: The Magnet Test', file:'' },
+      { t:'Making a Simple Compass: The Floating Needle Test', file:'' },
+      { t:'Exploring Magnetic Fields: The Iron Filings Test', file:'' } ] },
+  { n:5,  name:'Measurement of Length and Motion', icon:'straighten', color:'#0ea5e9', topics:[
+      { t:'Estimating and Measuring Length: The Everyday Object Challenge', file:'' },
+      { t:'Observing Different Types of Motion: The Toy Car Race', file:'' } ] },
+  { n:6,  name:'Materials Around Us', icon:'category', color:'#6366f1', topics:[
+      { t:'Classifying Objects by Properties', file:'' },
+      { t:'Group and Test Materials', file:'' },
+      { t:'Material Exploration and Use', file:'' } ] },
+  { n:7,  name:'Temperature and its Measurement', icon:'thermostat', color:'#f97316', topics:[
+      { t:'Feeling Temperature Differences', file:'' },
+      { t:'Reading Different Thermometers', file:'' } ] },
+  { n:8,  name:'A Journey through States of Water', icon:'water_drop', color:'#3b82f6', topics:[
+      { t:"Observing Water's States", file:'6Sci-Ch8-Act1.mp4' },
+      { t:'Factors Affecting Evaporation', file:'' },
+      { t:"Observing Water's Transformations", file:'' } ] },
+  { n:9,  name:'Methods of Separation in Everyday Life', icon:'filter_alt', color:'#0ea5a4', topics:[
+      { t:'Separating a Solid Mixture', file:'' },
+      { t:'Separating Salt from Sand', file:'' } ] },
+  { n:10, name:'Living Creatures: Exploring their Characteristics', icon:'emoji_nature', color:'#22c55e', topics:[
+      { t:'Living or Non-living Scavenger Hunt', file:'' },
+      { t:'Life Cycle', file:'' },
+      { t:'Investigating Seed Germination Conditions', file:'' } ] },
+  { n:11, name:"Nature's Treasures", icon:'eco', color:'#8b5cf6', topics:[
+      { t:'Local Ecosystem Resource Mapping', file:'' },
+      { t:'Designing a Renewable Energy Solution', file:'' },
+      { t:'Identifying Non-renewable Resources in Everyday Items', file:'' } ] },
+  { n:12, name:'Beyond Earth', icon:'public', color:'#ec4899', topics:[
+      { t:'Drawing Your Own Constellation', file:'' },
+      { t:'Building a Scale Model of the Solar System', file:'' },
+      { t:'Mapping Satellite Uses', file:'' } ] },
+];
+
+/* ===================================================================== */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const url=f=>f?BASE+f:'';
+const state={view:'home',unit:null,query:''};
+const unitByN=n=>UNITS.find(u=>u.n===n);
+const key=(n,i)=>`${n}:${i}`;
+const allTopics=UNITS.flatMap(u=>u.topics.map((t,i)=>({...t,unit:u,i})));
+const withVideo=allTopics.filter(t=>t.file);
+const unitVideos=u=>u.topics.filter(t=>t.file).length;
+
+function renderHud(){}
+
+/* ---------- Level map ---------- */
+function levelCard(u,i){
+  const v=unitVideos(u),locked=!v;
+  return `<button class="level ${locked?'locked':''}" style="--c:${u.color};--i:${i}" data-unit="${u.n}" aria-label="Unit ${u.n}: ${esc(u.name)}">
+    <span class="node"><span class="ms fill">${locked?'lock':u.icon}</span><span class="n">${u.n}</span></span>
+    <span class="info"><span class="lv">Unit ${u.n}${locked?' · Coming soon':''}</span><h3>${esc(u.name)}</h3>
+      <span class="tag">${locked?`${u.topics.length} topic${u.topics.length===1?'':'s'} · videos coming soon`:`${u.topics.length} topic${u.topics.length===1?'':'s'} · ${v} video${v===1?'':'s'}`}</span></span>
+    <span class="play"><span class="ms fill">${locked?'lock':'play_arrow'}</span></span>
+  </button>`;
+}
+function drawPath(){
+  const map=$('#map'),svg=$('svg.path',map),cards=[...map.querySelectorAll('.level')];if(!cards.length)return;
+  const r0=map.getBoundingClientRect();
+  const pts=cards.map(c=>{const r=c.querySelector('.node').getBoundingClientRect();return [r.left+r.width/2-r0.left,r.top+r.height/2-r0.top]});
+  let d=`M${pts[0][0]},${pts[0][1]}`;
+  for(let i=1;i<pts.length;i++){const [x0,y0]=pts[i-1],[x1,y1]=pts[i];const my=(y0+y1)/2;d+=` C${x0},${my} ${x1},${my} ${x1},${y1}`;}
+  svg.setAttribute('viewBox',`0 0 ${r0.width} ${r0.height}`);$('#pathBg').setAttribute('d',d);$('#pathDots').setAttribute('d',d);
+}
+function renderMap(){$('#levels').innerHTML=UNITS.map(levelCard).join('');requestAnimationFrame(()=>requestAnimationFrame(drawPath));}
+$('#levels').onclick=e=>{const b=e.target.closest('[data-unit]');if(b)go('level',+b.dataset.unit);};
+window.addEventListener('resize',()=>state.view==='home'&&drawPath());
+
+/* ---------- Missions ---------- */
+function missionCard(u,t,i,showUnit=false){
+  const has=!!t.file;
+  return `<article class="mission ${has?'':'locked'}" style="--c:${u.color};--i:${i}">
+    <div class="screen"><span class="num">${has?`Topic ${i+1}`:'Coming soon'}</span>
+      <span class="orb"><span class="ms fill">${has?'play_arrow':'lock'}</span></span></div>
+    <div class="body"><h4>${esc(t.t)}</h4>${showUnit?`<div style="font-size:12px;color:var(--text-3);font-weight:700;margin:-6px 0 10px">Unit ${u.n} · ${esc(u.name)}</div>`:''}
+      <div class="row">${has?`<button class="btn go" data-play="${u.n}:${i}"><span class="ms fill">play_circle</span>Watch video</button>
+        <a class="btn icon" href="${esc(url(t.file))}" target="_blank" rel="noopener" title="Open in new tab"><span class="ms">open_in_new</span></a>`
+        :`<span class="btn go"><span class="ms">lock</span>Coming soon</span>`}</div></div>
+  </article>`;
+}
+function renderLevel(){
+  const u=unitByN(state.unit);if(!u)return go('home');
+  const v=unitVideos(u);
+  $('#lvlHead').style.setProperty('--c',u.color);$('#lLv').textContent=`Unit ${u.n} · Class 6 Science`;$('#lName').textContent=u.name;$('#lIcon').textContent=u.icon;
+  $('#lProg').textContent=v?`${u.topics.length} topic${u.topics.length===1?'':'s'} · ${v} video${v===1?'':'s'} · pick a topic to watch`:'Videos coming soon';
+  const idx=UNITS.indexOf(u),prev=UNITS[idx-1],next=UNITS[idx+1];
+  $('#prevLvl').disabled=!prev;$('#nextLvl').disabled=!next;$('#prevLbl').textContent=prev?`Unit ${prev.n}`:'Previous';$('#nextLbl').textContent=next?`Unit ${next.n}`:'Next';
+  $('#prevLvl').onclick=()=>prev&&go('level',prev.n);$('#nextLvl').onclick=()=>next&&go('level',next.n);
+  $('#missions').innerHTML=u.topics.map((t,i)=>missionCard(u,t,i)).join('')
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-play]');if(!b)return;const [n,i]=b.dataset.play.split(':').map(Number);openVideo(n,i);});
+
+/* ---------- Search ---------- */
+function renderSearch(){
+  const q=state.query.trim().toLowerCase();
+  const hits=allTopics.filter(t=>(t.t+' '+t.unit.name).toLowerCase().includes(q));
+  const units=[...new Set(hits.map(h=>h.unit))];
+  $('#searchMeta').textContent=`${hits.length} topic${hits.length===1?'':'s'} in ${units.length} unit${units.length===1?'':'s'}`;
+  $('#searchResults').innerHTML=hits.length?units.map(u=>`<div class="group" style="--c:${u.color}"><div class="gh"><span class="n">${u.n}</span>${esc(u.name)}</div><div class="missions">${hits.filter(h=>h.unit===u).map(h=>missionCard(u,h,h.i)).join('')}</div></div>`).join('')
+    :`<div class="empty"><span class="ms fill">search_off</span><b>No topics found</b>Try “forces”, “matter” or “light”.</div>`
+}
+const searchInput=$('#searchInput'),searchBox=$('#searchBox');let st;
+searchInput.addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{state.query=searchInput.value;searchBox.classList.toggle('has',!!state.query);state.query.trim()?show('search'):show(state.unit?'level':'home');},120);});
+function clearSearch(){searchInput.value='';state.query='';searchBox.classList.remove('has');}
+$('#searchClear').onclick=()=>{clearSearch();show(state.unit?'level':'home');searchInput.focus();};
+
+/* ---------- Routing ---------- */
+function go(view,n){state.view=view;if(view==='level')state.unit=n;clearSearch();location.hash=view==='level'?`#/unit/${n}`:'#/';show(view);window.scrollTo({top:0,behavior:'smooth'});}
+function show(view){
+  state.view=view;document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  $('#view'+view[0].toUpperCase()+view.slice(1)).classList.add('active');
+  if(view==='home')renderMap();else if(view==='level')renderLevel();else renderSearch();
+  const u=unitByN(state.unit);document.title=(view==='level'&&u?`Unit ${u.n} · `:'')+'Class 6 Science Activities · Edubull';renderHud();
+}
+function route(){const m=location.hash.match(/^#\/(?:unit|level)\/(\d+)/);if(m&&unitByN(+m[1])){state.unit=+m[1];show('level');}else show('home');}
+window.addEventListener('hashchange',route);$('#backBtn').onclick=()=>go('home');
+
+/* ---------- Player ---------- */
+const modal=$('#modal'),video=$('#mVideo');let current=null;
+function openVideo(n,i){
+  const u=unitByN(n),t=u.topics[i];if(!t||!t.file)return;current={n,i};
+  $('#mBox').style.setProperty('--c',u.color);$('#mTag').textContent=`Unit ${u.n} · Topic ${i+1}`;$('#mTitle').textContent=t.t;$('#mSub').textContent=u.name;$('#mOpen').href=url(t.file);
+  video.src=url(t.file);video.load();modal.classList.add('open');document.body.style.overflow='hidden';video.play().catch(()=>{});
+  const k=withVideo.findIndex(x=>x.unit.n===n&&x.i===i);
+  $('#mPrev').disabled=k<=0;$('#mNext').disabled=k>=withVideo.length-1;
+  $('#mPrev').onclick=()=>{const p=withVideo[k-1];p&&openVideo(p.unit.n,p.i);};$('#mNext').onclick=()=>{const p=withVideo[k+1];p&&openVideo(p.unit.n,p.i);};
+}
+function closeVideo(){modal.classList.remove('open');document.body.style.overflow='';video.pause();video.removeAttribute('src');video.load();current=null;}
+video.addEventListener('ended',()=>{if(!$('#mNext').disabled)setTimeout(()=>$('#mNext').click(),800);});
+video.addEventListener('error',()=>toast('Video could not load. Try “Open in new tab”.'));
+$('#mClose').onclick=closeVideo;modal.addEventListener('click',e=>{if(e.target===modal)closeVideo();});
+
+/* ---------- FX ---------- */
+let tt;function toast(m){const t=$('#toast');t.innerHTML=`<span class="ms fill">info</span>${esc(m)}`;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);}
+document.addEventListener('keydown',e=>{
+  const typing=['INPUT','TEXTAREA'].includes(document.activeElement.tagName);
+  if(e.key==='/'&&!typing&&!modal.classList.contains('open')){e.preventDefault();searchInput.focus();}
+  if(e.key==='Escape'){if(modal.classList.contains('open'))closeVideo();else if(typing&&searchInput.value){clearSearch();show(state.unit?'level':'home');searchInput.blur();}else if(state.view==='level')go('home');}
+  if(modal.classList.contains('open')&&!typing){if(e.key==='ArrowRight')$('#mNext').click();if(e.key==='ArrowLeft')$('#mPrev').click();}
+});
+route();
+</script>
+</body>
+</html>

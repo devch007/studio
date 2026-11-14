@@ -9,6 +9,7 @@ assets/logo.png
 class3/ct/ct-ai-quest.html
 class6/science/ecosystem-3d-lab.html
 class6/science/holo-solar-system.html
+class6/science/science-activities.html
 class7/science/acid-base-solutions.html
 class7/science/electric-circuit-lab.html
 class7/science/science-activities.html
