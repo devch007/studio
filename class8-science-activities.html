@@ -109,12 +109,7 @@ a{color:inherit;text-decoration:none}
 .mission:hover{transform:translateY(-6px) scale(1.01);border-color:color-mix(in srgb,var(--c) 45%,transparent);box-shadow:0 20px 50px rgba(40,44,110,.14)}
 .mission .screen{position:relative;height:160px;display:grid;place-items:center;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 60%,#fff),var(--c) 50%,color-mix(in srgb,var(--c) 60%,#000));overflow:hidden}
 .mission .screen::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 12px,transparent 12px 24px)}
-.mission .screen .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent;opacity:0;transition:opacity .4s}
-canvas.thumb{opacity:1}
-.mission .screen .thumb.ready{opacity:1}
-.mission .screen .thumb+.num{z-index:1}
 .mission .screen .orb{z-index:1}
-.mission .screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35));pointer-events:none}
 .mission .screen .orb{position:relative;width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);box-shadow:inset 0 2px 0 rgba(255,255,255,.5),0 12px 26px rgba(0,0,0,.3);transition:transform .3s var(--pop)}
 .mission:hover .screen .orb{transform:scale(1.15)}
 .mission .screen .orb .ms{--is:44px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}
@@ -308,7 +303,7 @@ window.addEventListener('resize',()=>state.view==='home'&&drawPath());
 function missionCard(u,t,i,showUnit=false){
   const has=!!t.file;
   return `<article class="mission ${has?'':'locked'}" style="--c:${u.color};--i:${i}">
-    <div class="screen">${has?`<video class="thumb" data-src="${esc(url(t.file))}#t=1" preload="none" muted playsinline tabindex="-1" aria-hidden="true"></video>`:''}<span class="num">${has?`Topic ${i+1}`:'Coming soon'}</span>
+    <div class="screen"><span class="num">${has?`Topic ${i+1}`:'Coming soon'}</span>
       <span class="orb"><span class="ms fill">${has?'play_arrow':'lock'}</span></span></div>
     <div class="body"><h4>${esc(t.t)}</h4>${showUnit?`<div style="font-size:12px;color:var(--text-3);font-weight:700;margin:-6px 0 10px">Unit ${u.n} · ${esc(u.name)}</div>`:''}
       <div class="row">${has?`<button class="btn go" data-play="${u.n}:${i}"><span class="ms fill">play_circle</span>Watch video</button>
@@ -324,25 +319,8 @@ function renderLevel(){
   const idx=UNITS.indexOf(u),prev=UNITS[idx-1],next=UNITS[idx+1];
   $('#prevLvl').disabled=!prev;$('#nextLvl').disabled=!next;$('#prevLbl').textContent=prev?`Unit ${prev.n}`:'Previous';$('#nextLbl').textContent=next?`Unit ${next.n}`:'Next';
   $('#prevLvl').onclick=()=>prev&&go('level',prev.n);$('#nextLvl').onclick=()=>next&&go('level',next.n);
-  $('#missions').innerHTML=u.topics.map((t,i)=>missionCard(u,t,i)).join('');watchThumbs();
+  $('#missions').innerHTML=u.topics.map((t,i)=>missionCard(u,t,i)).join('')
 }
-/* Lazy thumbnails: grab ONE frame into a canvas, then release the video so it stops downloading.
-   At most 2 thumbnails load at a time so they never compete with the player. */
-const thumbQ=[];let thumbBusy=0;const MAX_THUMBS=2;
-function pumpThumbs(){
-  while(thumbBusy<MAX_THUMBS&&thumbQ.length){
-    const v=thumbQ.shift();if(!v.isConnected||v.dataset.done)continue;thumbBusy++;v.dataset.done='1';
-    let finished=false;const finish=()=>{if(finished)return;finished=true;thumbBusy--;try{v.removeAttribute('src');v.load();}catch{}pumpThumbs();};
-    const draw=()=>{try{const c=document.createElement('canvas');c.width=v.videoWidth||320;c.height=v.videoHeight||180;c.getContext('2d').drawImage(v,0,0,c.width,c.height);c.className='thumb ready';v.replaceWith(c);}catch{}finish();};
-    v.addEventListener('loadeddata',()=>{if(v.readyState>=2)draw();},{once:true});
-    v.addEventListener('seeked',draw,{once:true});
-    v.addEventListener('error',finish,{once:true});
-    setTimeout(finish,12000);
-    v.preload='metadata';v.src=v.dataset.src;
-  }
-}
-const thumbIO=new IntersectionObserver(es=>{for(const en of es){if(!en.isIntersecting)continue;thumbIO.unobserve(en.target);thumbQ.push(en.target);pumpThumbs();}},{rootMargin:'150px'});
-function watchThumbs(){document.querySelectorAll('video.thumb[data-src]:not([data-done])').forEach(v=>thumbIO.observe(v));}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-play]');if(!b)return;const [n,i]=b.dataset.play.split(':').map(Number);openVideo(n,i);});
 
 /* ---------- Search ---------- */
@@ -352,7 +330,7 @@ function renderSearch(){
   const units=[...new Set(hits.map(h=>h.unit))];
   $('#searchMeta').textContent=`${hits.length} topic${hits.length===1?'':'s'} in ${units.length} unit${units.length===1?'':'s'}`;
   $('#searchResults').innerHTML=hits.length?units.map(u=>`<div class="group" style="--c:${u.color}"><div class="gh"><span class="n">${u.n}</span>${esc(u.name)}</div><div class="missions">${hits.filter(h=>h.unit===u).map(h=>missionCard(u,h,h.i)).join('')}</div></div>`).join('')
-    :`<div class="empty"><span class="ms fill">search_off</span><b>No topics found</b>Try “forces”, “matter” or “light”.</div>`;watchThumbs();
+    :`<div class="empty"><span class="ms fill">search_off</span><b>No topics found</b>Try “forces”, “matter” or “light”.</div>`
 }
 const searchInput=$('#searchInput'),searchBox=$('#searchBox');let st;
 searchInput.addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{state.query=searchInput.value;searchBox.classList.toggle('has',!!state.query);state.query.trim()?show('search'):show(state.unit?'level':'home');},120);});
