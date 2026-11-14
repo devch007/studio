@@ -58,7 +58,7 @@ a{color:inherit;text-decoration:none}
 .title{text-align:center;margin:10px 0 26px}
 .title .k{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--violet);padding:7px 14px;border-radius:999px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3)}
 .title h1{margin:10px 0 4px;font-family:var(--display);font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-1px;line-height:1;text-shadow:none}
-.title h1 span{background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.title h1 span{color:var(--violet)}
 .title p{margin:0;color:var(--text-2);font-size:14.5px}
 
 /* ---------- Level map ---------- */
@@ -109,7 +109,8 @@ a{color:inherit;text-decoration:none}
 .mission:hover{transform:translateY(-6px) scale(1.01);border-color:color-mix(in srgb,var(--c) 45%,transparent);box-shadow:0 20px 50px rgba(40,44,110,.14)}
 .mission .screen{position:relative;height:160px;display:grid;place-items:center;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 60%,#fff),var(--c) 50%,color-mix(in srgb,var(--c) 60%,#000));overflow:hidden}
 .mission .screen::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 12px,transparent 12px 24px)}
-.mission .screen .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent}
+.mission .screen .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent;opacity:0;transition:opacity .4s}
+.mission .screen .thumb.ready{opacity:1}
 .mission .screen .thumb+.num{z-index:1}
 .mission .screen .orb{z-index:1}
 .mission .screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35));pointer-events:none}
@@ -307,7 +308,7 @@ window.addEventListener('resize',()=>state.view==='home'&&drawPath());
 function missionCard(u,t,i,showUnit=false){
   const has=!!t.file;
   return `<article class="mission ${has?'':'locked'}" style="--c:${u.color};--i:${i}">
-    <div class="screen">${has?`<video class="thumb" src="${esc(url(t.file))}#t=3" preload="metadata" muted playsinline tabindex="-1" aria-hidden="true"></video>`:''}<span class="num">${has?`Topic ${i+1}`:'Coming soon'}</span>
+    <div class="screen">${has?`<video class="thumb" data-src="${esc(url(t.file))}#t=1" preload="none" muted playsinline tabindex="-1" aria-hidden="true"></video>`:''}<span class="num">${has?`Topic ${i+1}`:'Coming soon'}</span>
       <span class="orb"><span class="ms fill">${has?'play_arrow':'lock'}</span></span></div>
     <div class="body"><h4>${esc(t.t)}</h4>${showUnit?`<div style="font-size:12px;color:var(--text-3);font-weight:700;margin:-6px 0 10px">Unit ${u.n} · ${esc(u.name)}</div>`:''}
       <div class="row">${has?`<button class="btn go" data-play="${u.n}:${i}"><span class="ms fill">play_circle</span>Watch video</button>
@@ -323,8 +324,11 @@ function renderLevel(){
   const idx=UNITS.indexOf(u),prev=UNITS[idx-1],next=UNITS[idx+1];
   $('#prevLvl').disabled=!prev;$('#nextLvl').disabled=!next;$('#prevLbl').textContent=prev?`Unit ${prev.n}`:'Previous';$('#nextLbl').textContent=next?`Unit ${next.n}`:'Next';
   $('#prevLvl').onclick=()=>prev&&go('level',prev.n);$('#nextLvl').onclick=()=>next&&go('level',next.n);
-  $('#missions').innerHTML=u.topics.map((t,i)=>missionCard(u,t,i)).join('');
+  $('#missions').innerHTML=u.topics.map((t,i)=>missionCard(u,t,i)).join('');watchThumbs();
 }
+/* Lazy thumbnails: load a frame only when the card is on screen */
+const thumbIO=new IntersectionObserver(es=>{for(const en of es){if(!en.isIntersecting)continue;const v=en.target;thumbIO.unobserve(v);v.preload='metadata';v.src=v.dataset.src;v.addEventListener('loadeddata',()=>v.classList.add('ready'),{once:true});}},{rootMargin:'200px'});
+function watchThumbs(){document.querySelectorAll('video.thumb[data-src]:not([src])').forEach(v=>thumbIO.observe(v));}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-play]');if(!b)return;const [n,i]=b.dataset.play.split(':').map(Number);openVideo(n,i);});
 
 /* ---------- Search ---------- */
@@ -334,7 +338,7 @@ function renderSearch(){
   const units=[...new Set(hits.map(h=>h.unit))];
   $('#searchMeta').textContent=`${hits.length} topic${hits.length===1?'':'s'} in ${units.length} unit${units.length===1?'':'s'}`;
   $('#searchResults').innerHTML=hits.length?units.map(u=>`<div class="group" style="--c:${u.color}"><div class="gh"><span class="n">${u.n}</span>${esc(u.name)}</div><div class="missions">${hits.filter(h=>h.unit===u).map(h=>missionCard(u,h,h.i)).join('')}</div></div>`).join('')
-    :`<div class="empty"><span class="ms fill">search_off</span><b>No topics found</b>Try “forces”, “matter” or “light”.</div>`;
+    :`<div class="empty"><span class="ms fill">search_off</span><b>No topics found</b>Try “forces”, “matter” or “light”.</div>`;watchThumbs();
 }
 const searchInput=$('#searchInput'),searchBox=$('#searchBox');let st;
 searchInput.addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{state.query=searchInput.value;searchBox.classList.toggle('has',!!state.query);state.query.trim()?show('search'):show(state.unit?'level':'home');},120);});
