@@ -110,6 +110,7 @@ a{color:inherit;text-decoration:none}
 .mission .screen{position:relative;height:160px;display:grid;place-items:center;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 60%,#fff),var(--c) 50%,color-mix(in srgb,var(--c) 60%,#000));overflow:hidden}
 .mission .screen::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 12px,transparent 12px 24px)}
 .mission .screen .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent;opacity:0;transition:opacity .4s}
+canvas.thumb{opacity:1}
 .mission .screen .thumb.ready{opacity:1}
 .mission .screen .thumb+.num{z-index:1}
 .mission .screen .orb{z-index:1}
@@ -211,7 +212,7 @@ footer{padding:24px;text-align:center;color:var(--text-3);font-size:12.5px}foote
     <div class="head"><span class="tag" id="mTag"></span><h3 id="mTitle"></h3>
       <a class="btn icon" id="mOpen" href="#" target="_blank" rel="noopener" title="Open in new tab"><span class="ms">open_in_new</span></a>
       <button class="btn icon" id="mClose" aria-label="Close"><span class="ms">close</span></button></div>
-    <video id="mVideo" controls playsinline preload="metadata" controlsList="nodownload"></video>
+    <video id="mVideo" controls playsinline preload="auto" controlsList="nodownload"></video>
     <div class="foot"><span id="mSub"></span><div class="nav"><button class="btn" id="mPrev"><span class="ms">skip_previous</span>Previous</button><button class="btn" id="mNext">Next<span class="ms">skip_next</span></button></div></div>
   </div>
 </div>
@@ -325,9 +326,23 @@ function renderLevel(){
   $('#prevLvl').onclick=()=>prev&&go('level',prev.n);$('#nextLvl').onclick=()=>next&&go('level',next.n);
   $('#missions').innerHTML=u.topics.map((t,i)=>missionCard(u,t,i)).join('');watchThumbs();
 }
-/* Lazy thumbnails: load a frame only when the card is on screen */
-const thumbIO=new IntersectionObserver(es=>{for(const en of es){if(!en.isIntersecting)continue;const v=en.target;thumbIO.unobserve(v);v.preload='metadata';v.src=v.dataset.src;v.addEventListener('loadeddata',()=>v.classList.add('ready'),{once:true});}},{rootMargin:'200px'});
-function watchThumbs(){document.querySelectorAll('video.thumb[data-src]:not([src])').forEach(v=>thumbIO.observe(v));}
+/* Lazy thumbnails: grab ONE frame into a canvas, then release the video so it stops downloading.
+   At most 2 thumbnails load at a time so they never compete with the player. */
+const thumbQ=[];let thumbBusy=0;const MAX_THUMBS=2;
+function pumpThumbs(){
+  while(thumbBusy<MAX_THUMBS&&thumbQ.length){
+    const v=thumbQ.shift();if(!v.isConnected||v.dataset.done)continue;thumbBusy++;v.dataset.done='1';
+    let finished=false;const finish=()=>{if(finished)return;finished=true;thumbBusy--;try{v.removeAttribute('src');v.load();}catch{}pumpThumbs();};
+    const draw=()=>{try{const c=document.createElement('canvas');c.width=v.videoWidth||320;c.height=v.videoHeight||180;c.getContext('2d').drawImage(v,0,0,c.width,c.height);c.className='thumb ready';v.replaceWith(c);}catch{}finish();};
+    v.addEventListener('loadeddata',()=>{if(v.readyState>=2)draw();},{once:true});
+    v.addEventListener('seeked',draw,{once:true});
+    v.addEventListener('error',finish,{once:true});
+    setTimeout(finish,12000);
+    v.preload='metadata';v.src=v.dataset.src;
+  }
+}
+const thumbIO=new IntersectionObserver(es=>{for(const en of es){if(!en.isIntersecting)continue;thumbIO.unobserve(en.target);thumbQ.push(en.target);pumpThumbs();}},{rootMargin:'150px'});
+function watchThumbs(){document.querySelectorAll('video.thumb[data-src]:not([data-done])').forEach(v=>thumbIO.observe(v));}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-play]');if(!b)return;const [n,i]=b.dataset.play.split(':').map(Number);openVideo(n,i);});
 
 /* ---------- Search ---------- */
@@ -360,7 +375,7 @@ const modal=$('#modal'),video=$('#mVideo');let current=null;
 function openVideo(n,i){
   const u=unitByN(n),t=u.topics[i];if(!t||!t.file)return;current={n,i};
   $('#mBox').style.setProperty('--c',u.color);$('#mTag').textContent=`Unit ${u.n} · Topic ${i+1}`;$('#mTitle').textContent=t.t;$('#mSub').textContent=u.name;$('#mOpen').href=url(t.file);
-  video.src=url(t.file);modal.classList.add('open');document.body.style.overflow='hidden';video.play().catch(()=>{});
+  video.src=url(t.file);video.load();modal.classList.add('open');document.body.style.overflow='hidden';video.play().catch(()=>{});
   const k=withVideo.findIndex(x=>x.unit.n===n&&x.i===i);
   $('#mPrev').disabled=k<=0;$('#mNext').disabled=k>=withVideo.length-1;
   $('#mPrev').onclick=()=>{const p=withVideo[k-1];p&&openVideo(p.unit.n,p.i);};$('#mNext').onclick=()=>{const p=withVideo[k+1];p&&openVideo(p.unit.n,p.i);};
