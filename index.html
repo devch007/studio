@@ -516,23 +516,20 @@ ICONS.hindiA='<span class="hi">अ</span>'; ICONS.hindiK='<span class="hi">क</
 const E = ['early'];
 const P = ['class1','class2','class3','class4','class5'];
 const M = ['class6','class7','class8'];
-const ALL = [...P,...M];
+/* Each entry links to a real studio file in this repo (class/subject/file.html). */
 const GAMES = [
-  /* ---- Early Years ---- */
-  { id:'all-in-one',    subject:'allinone', title:'All in One', desc:'Colours, shapes, alphabets and numbers in one playful bundle.', icon:'star', classes:E, tags:['Audio','Touch'], url:'https://edubull.com/studio/all-in-one' },
-  { id:'pre-writing',   subject:'english',  title:'Pre‑Writing', desc:'Pencil grip, tracing paths & fine motor skills.', icon:'pencil', classes:E, tags:['Tracing','Audio'], url:'https://edubull.com/studio/pre-writing' },
-  { id:'rhymes',        subject:'rhymes',   title:'Rhyme Time', desc:'Sing-along rhymes with actions, beats and picture cues.', icon:'music', classes:E, tags:['Audio','Video'], url:'https://edubull.com/studio/rhymes' },
-  { id:'hindi-swar',    subject:'hindi',    title:'हिंदी स्वर', titleHi:true, desc:'सचित्र स्वर पहचान और ध्वनि खेल', icon:'hindiA', classes:E, tags:['Audio','Pictures'], url:'https://edubull.com/studio/hindi-swar' },
-  { id:'shapes-colours',subject:'math',     title:'Shapes & Colours', desc:'Sort, match and build with shapes, colours and patterns.', icon:'shapes', classes:E, tags:['Drag & drop'], url:'https://edubull.com/studio/shapes-colours' },
-  { id:'number-ninja',  subject:'math',     title:'Number Ninja', desc:'Count, compare and pop numbers 1–50 with timed challenges.', icon:'calc', classes:E, tags:['Timed','Levels'], url:'https://edubull.com/studio/number-ninja' },
-  { id:'general-awareness', subject:'ga',   title:'General Awareness', desc:'My body, family, seasons, helpers and the world around me.', icon:'bulb', classes:E, tags:['Quiz','Pictures'], url:'https://edubull.com/studio/general-awareness' },
-  { id:'phonics-fun',   subject:'english',  title:'Phonics Fun', desc:'Letter sounds, blends and first sight words with monster friends.', icon:'book', classes:E, tags:['Audio','Sight words'], url:'https://edubull.com/studio/phonics-fun' },
-  /* ---- Class 1–8: Maths · Science · CT ---- */
-  { id:'math-adventure',  subject:'math',    title:'Math Adventure', desc:'Arithmetic, fractions & geometric puzzle world.', icon:'calc', classes:ALL, tags:['Levels','Leaderboard'], url:'https://edubull.com/studio/math-adventure' },
-  { id:'science-explorer',subject:'science', title:'Science Explorer', desc:'Interactive natural science & STEM experiments.', icon:'flask', classes:ALL, tags:['Experiments','3D'], url:'https://edubull.com/studio/science-explorer' },
-  { id:'ct-ai-quest',     subject:'ai',      title:'CT & AI Quest', desc:'Computational logic and algorithm basics.', icon:'robot', classes:ALL, tags:['Logic','Puzzles'], url:'https://edubull.com/studio/ct-ai-quest' },
-  { id:'coding-blocks',   subject:'ai',      title:'Coding Blocks', desc:'Block-based coding: loops, conditions and your first robot.', icon:'code', classes:M, tags:['Blocks','Robotics'], url:'https://edubull.com/studio/coding-blocks' },
-  { id:'atom-lab',        subject:'science', title:'Atom Lab', desc:'Matter, elements and reactions in a safe virtual laboratory.', icon:'atom', classes:M, tags:['Lab','3D'], url:'https://edubull.com/studio/atom-lab' },
+  /* ---- Class 3 ---- */
+  { id:'ct-ai-quest-3',    subject:'ai',      title:'CT & AI Quest', desc:'Computational thinking and AI basics through chapter-wise quests.', icon:'robot', classes:['class3'], tags:['Logic','Quests'], url:'class3/ct/ct-ai-quest.html' },
+  /* ---- Class 6 ---- */
+  { id:'ecosystem-6',      subject:'science', title:'Ecosystem 3D Lab', desc:'Explore food chains, habitats and energy flow in an interactive 3D ecosystem.', icon:'leaf', classes:['class6'], tags:['3D','Lab'], url:'class6/science/ecosystem-3d-lab.html' },
+  { id:'solar-system-6',   subject:'science', title:'Holo Solar System', desc:'Place the Solar System on your table in AR, explore every planet, quiz and tour.', icon:'globe', classes:['class6'], tags:['3D','AR'], url:'class6/science/holo-solar-system.html' },
+  /* ---- Class 7 ---- */
+  { id:'acid-base-7',      subject:'science', title:'Acid-Base Solutions', desc:'Interactive 3D chemistry lab on acids, bases and indicators.', icon:'flask', classes:['class7'], tags:['3D','Chemistry'], url:'class7/science/acid-base-solutions.html' },
+  { id:'circuit-7',        subject:'science', title:'The Electric Circuit', desc:'Build circuits, test conductors and light bulbs in a 3D science lab.', icon:'atom', classes:['class7'], tags:['3D','Physics'], url:'class7/science/electric-circuit-lab.html' },
+  { id:'sci-activities-7', subject:'science', title:'Science Activities', desc:'Hands-on activity videos for every Class 7 Science unit.', icon:'star', classes:['class7'], tags:['Videos','12 units'], url:'class7/science/science-activities.html' },
+  /* ---- Class 8 ---- */
+  { id:'cell-explorer-8',  subject:'science', title:'Cell Explorer 360', desc:'Spin, slice and fly inside plant and animal cells in 3D, in English or Hindi.', icon:'atom', classes:['class8'], tags:['3D','Hindi'], url:'class8/science/cell-explorer-360.html' },
+  { id:'sci-activities-8', subject:'science', title:'Science Activities', desc:'Hands-on activity videos for every Class 8 Science unit.', icon:'star', classes:['class8'], tags:['Videos','13 units'], url:'class8/science/science-activities.html' },
 ];
 
 /* ============================================================

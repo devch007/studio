@@ -1,18 +1,18 @@
 # Edubull Studio
 
-Redesigned `/studio` page for edubull.com — a single, self-contained HTML file (`index.html`) with no build step.
+Static studio for edubull.com. `index.html` is the entry: pick a class, then a subject, then open a simulation.
 
-## Workflow
-1. **Choose a class** — Early Years, Primary (Class 1–5), Middle (Class 6–8). Classes 1–8 offer Maths, Science and CT.
-2. **Pick a subject** — filter chips show only the subjects that have simulations for that class.
-3. **Play** — each simulation card links to its studio URL.
-
-## Features
-- Class-first navigation with a persistent sidebar (matches the EduLibrary dashboard), breadcrumbs, prev/next class, hash routing (`#/class/class3`) so links are shareable.
-- Global search (`/` to focus, `Esc` to clear/go back) across simulations, subjects and classes.
-- Light/dark themes, favourites and sidebar state remembered in `localStorage`.
-- Fully responsive (mobile drawer sidebar), keyboard accessible, reduced-motion safe.
-
-## Editing content
-All classes, subjects and simulations live in the `DATA` block at the top of the `<script>` in `index.html`.
-Add a simulation by appending to `GAMES` with its `subject`, the `classes` it belongs to, and its `url`.
+## Folder layout
+```
+index.html                      studio home (class -> subject -> simulation)
+assets/logo.png
+class3/ct/ct-ai-quest.html
+class6/science/ecosystem-3d-lab.html
+class6/science/holo-solar-system.html
+class7/science/acid-base-solutions.html
+class7/science/electric-circuit-lab.html
+class7/science/science-activities.html
+class8/science/cell-explorer-360.html
+class8/science/science-activities.html
+```
+Add a new simulation by dropping its HTML into `class<N>/<subject>/` and adding one entry to the `GAMES` array near the top of the script in `index.html`.
